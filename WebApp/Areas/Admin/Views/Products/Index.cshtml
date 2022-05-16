@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Product Attributes";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Product List</h3>
+    </div>
+    <div class="col-6 text-right font-12"><a href="~/admin/dashboard">Admin</a> &gt;  Product List</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <div class="w-100">
+                    <h4 class="card-title text-uppercase mb-10 pull-left tx-16 w-100">Product List <a asp-action="Create" asp-controller="Products" asp-area="admin" class="btn btn-primary float-right btn-sm">Add New</a></h4>
+                </div>
+                <div class="w-100">
+                    <table id="tblProductTable" class="display nowrap table table-hover table-striped basic-t">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Product</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>SKU</th>
+                                <th>Price</th>
+                                <th>Created By</th>
+                                <th>Created Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section DataTable{
+
+    <script>
+        $(document).ready(function () {
+            var column = [
+                { "data": "id" },
+                { "data": "featureImage" },
+                { "data": "name" },
+                { "data": "category" },
+                { "data": "sku" },
+                { "data": "newPrice" },
+                { "data": "createdBy" },
+                { "data": "createdDate" },
+                { "data": "id" },
+            ];
+
+            $('#tblProductTable').DataTable({
+                "ajax": basedURL + "/admin/products/all-products",
+                columnDefs: [
+                    {
+                        'targets': 1,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = '<img src="' + basedURL + '/' + data + '" alt="Product Image" title="' + row.name + '" class="profile-img2 img-circle"> ';
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        'targets': 2,
+                        'render': function (data, type, row, meta) {
+                            let pName = "";
+                            if (type === 'display') {
+                                pName = (data.length > 50) ? data.substring(0, 50) + "..." : data;
+                            }
+                            return pName;
+                        }
+                    },
+                    {
+                        'targets': 8,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = "<a href='" + basedURL + "/admin/products/edit/" + data + "' class='btn btn-success grid-btn'><i class='fa fa-pencil'></i></a>";
+                            }
+                            return data;
+                        }
+                    }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                aoColumns: column,
+                rowId: 'id',
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                deferRender: true
+            });
+        })
+    </script>
+
+}

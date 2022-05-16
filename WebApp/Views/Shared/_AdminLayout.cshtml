@@ -1,0 +1,334 @@
+﻿@using System.Security.Claims;
+@{
+
+    var loginUserFullName = (User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.GivenName) != null) ? User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.GivenName).Value : "";
+    var loginUserEmail = (User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.Email) != null) ? User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.Email).Value : "";
+    var loginUserRole = (User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.Role) != null) ? User.Claims.FirstOrDefault(c => c.Type.ToString() == ClaimTypes.Role).Value : "";
+    var loginUserId = 11;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="~/admin/image/png" sizes="16x16" href="~/admin/images/favicon.png">
+    <title>@ViewData["Title"] - Coscobazar Admin</title>
+    <link href="~/admin/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/admin/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/kendo/styles/kendo.default-v2.min.css" rel="stylesheet" />
+    <!-- This page CSS -->
+    <!-- chartist CSS -->
+    <link href="~/admin/morrisjs/morris.css" rel="stylesheet">
+    <!--c3 CSS -->
+    <link href="~/admin/c3-master/c3.min.css" rel="stylesheet">
+
+    <!--Toaster Popup message CSS -->
+    <link href="~/admin/toast-master/css/jquery.toast.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/admin/css/master-stylesheet.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="~/admin/css/colors/blue-dark.css" id="theme" rel="stylesheet">
+    @RenderSection("Styles", required: false)
+    <link href="~/admin/css/style2.css" rel="stylesheet" />
+    <link href="~/admin/css/admin.custom.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/admin/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+        var pathURL = window.location.pathname; // Returns path only (/path/example.html)
+        var pageURL = window.location.href;     // Returns full URL (https://example.com/path/example.html)
+        var basedURL = window.location.origin;   // Returns base URL (https://example.com)
+    </script>
+    <script src="~/admin/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/admin/datatables-2/buttons/dataTables.buttons.min.js"></script>
+    <script src="~/admin/datatables-2/buttons/buttons.flash.min.js"></script>
+    <script src="~/admin/datatables-2/pdfmake/jszip.min.js"></script>
+    <script src="~/admin/datatables-2/pdfmake/pdfmake.min.js"></script>
+    <script src="~/admin/datatables-2/pdfmake/vfs_fonts.js"></script>
+    <script src="~/admin/datatables-2/buttons/buttons.html5.min.js"></script>
+    <script src="~/admin/datatables-2/buttons/buttons.print.min.js"></script>
+    <script src="~/kendo/js/kendo.all.min.js"></script>
+
+    @RenderSection("DataTable", required: false)
+</head>
+<body class="fix-header fix-sidebar card-no-border">
+    <div class="preloader">
+        <div class="loader">
+            <div class="lds-roller">
+                <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </div>
+    <div id="main-wrapper">
+
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
+                <!-- ============================================================== -->
+                <!-- Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="~/admin/dashboard">
+                        <!-- Logo icon --><b>
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="~/user/images/logo.png" alt="homepage" class="dark-logo top-logo" />
+                            <!-- Light Logo icon -->
+                            <img src="~/user/images/logo.png" alt="homepage" class="light-logo top-logo" />
+                        </b>
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+
+                    <ul class="navbar-nav mr-auto">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item hidden-sm-down"><span></span></li>
+                    </ul>
+
+                    <ul class="navbar-nav my-lg-0">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-Bell"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated fadeIn">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Launch Admin</h5> <span class="mail-desc">Just see the my new admin!</span> <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-success btn-circle"><i class="ti-calendar"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Event today</h5> <span class="mail-desc">Just a reminder that you have event</span> <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-info btn-circle"><i class="ti-settings"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Settings</h5> <span class="mail-desc">You can customize this template as you want</span> <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="btn btn-primary btn-circle"><i class="ti-user"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5>Mason Hudson</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="icon-Mail"></i>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu mailbox dropdown-menu-right animated fadeIn" aria-labelledby="2">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">You have 4 new messages</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="~/admin/images/users/1.jpg" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Mason Hudson</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="~/admin/images/users/2.jpg" alt="user" class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Pepper Hensen</h5> <span class="mail-desc">Neque porro quisquam est!</span> <span class="time">9:10 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="~/admin/images/users/3.jpg" alt="user" class="img-circle"> <span class="profile-status away pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Steve Carter</h5> <span class="mail-desc">I am a singer!</span> <span class="time">9:08 AM</span>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="#">
+                                                <div class="user-img"> <img src="~/admin/images/users/4.jpg" alt="user" class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                                <div class="mail-contnet">
+                                                    <h5>Mason Hudson</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:02 AM</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>See all e-Mails</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/admin/images/users/1.jpg" alt="user" class="profile-pic" /></a>
+                            <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                                <ul class="dropdown-user">
+                                    <li>
+                                        <div class="dw-user-box">
+                                            <div class="u-img"><img src="~/admin/images/users/1.jpg" alt="user"></div>
+                                            <div class="u-text">
+                                                <h4>@loginUserFullName</h4>
+                                                <p class="text-muted">@loginUserEmail</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a asp-controller="" asp-area="" asp-action="" target="_blank"><i class="ti-user"></i> Visit Site</a></li>
+                                    <li><a asp-controller="Users" asp-area="Admin" asp-action="edit-profile" asp-route-id="@loginUserId"><i class="ti-user"></i> My Profile</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a asp-action="Logout" asp-controller="Account" asp-area=""><i class="fa fa-power-off"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li><a class="has-arrow waves-effect waves-dark" asp-controller="SliderImages" asp-action="" asp-area="Admin" aria-expanded="false"><i class="fa fa-images mr-10"></i><span class="hide-menu">Sliders</span></a></li>
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-shopping-bag mr-10"></i><span class="hide-menu">Catalogs</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a asp-controller="Categories" asp-action="" asp-area="Admin">Category</a></li>
+                                <li><a asp-controller="ProductAttributes" asp-action="" asp-area="Admin">Product Attribute</a></li>
+                                <li><a asp-controller="Attributeitems" asp-action="" asp-area="Admin">Attribute Items</a></li>
+                                <li><a asp-controller="Tags" asp-action="" asp-area="Admin">Tags</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-shopping-basket mr-10"></i><span class="hide-menu">Products</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a asp-controller="Products" asp-action="" asp-area="Admin">Product List</a></li>
+                                <li><a asp-controller="Products" asp-action="Create" asp-area="Admin">Add Product</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-shopping-cart mr-10"></i><span class="hide-menu">Sales</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a asp-controller="Orders" asp-action="" asp-area="Sales">Orders</a></li>
+                                <li><a asp-controller="Shipments" asp-action="Create" asp-area="Sales">Shipments</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="fa fa-shopping-basket mr-10"></i><span class="hide-menu">Users</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a asp-controller="Users" asp-action="SuperAdmins" asp-area="Admin">Super Admin</a></li>
+                                <li><a asp-controller="Users" asp-action="Admins" asp-area="Admin">Admin</a></li>
+                                <li><a asp-controller="Users" asp-action="Vendors" asp-area="Admin">Vendor</a></li>
+                                <li><a asp-controller="Users" asp-action="Index" asp-area="Admin">Customer</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+        <div class="page-wrapper">
+
+            <div class="container-fluid">
+
+                @RenderBody()
+
+            </div>
+        </div>
+    </div>
+
+    <div class="loader-overlay dummy_ajax_loader">
+        <img src="~/admin/images/loader/256x256.gif" class="ajax-loader" alt="Loading..." />
+    </div>
+
+    <!-- Bootstrap popper Core JavaScript -->
+    <script src="~/admin/bootstrap/js/popper.min.js"></script>
+    <script src="~/admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="~/admin/ps/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="~/admin/notify/notify.js"></script>
+    <script src="~/admin/js/waves.js"></script>
+    <script src="~/admin/js/sidebarmenu.js"></script>
+    <!--Menu sidebar -->
+    <script src="~/admin/parsleyjs/parsley.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="~/admin/js/custom.min.js"></script>
+    <script src="~/admin/js/admin-custom.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(document).ajaxStart(function () {
+                $('.dummy_ajax_loader').show();
+            }).ajaxStop(function () {
+                $('.dummy_ajax_loader').hide();
+            });
+
+
+            var successMeessage = "@TempData["InfoMessage"]";
+            var errorMessage = "@TempData["ErrorMessage"]";
+            if (successMeessage && successMeessage !="") {
+                ShowNotifyMessage(successMeessage, "success");
+            }
+            if (errorMessage && errorMessage !="") {
+                ShowNotifyMessage(errorMessage, "error");
+            }
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

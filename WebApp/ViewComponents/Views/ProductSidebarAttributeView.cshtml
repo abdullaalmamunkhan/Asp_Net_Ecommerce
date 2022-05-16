@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DbModelsCore.Models.Ecommerce.Catalog.DBProductAttribute>
+
+@if (Model != null && Model.Count() > 0)
+{
+
+    foreach (var thisAttribute in Model)
+    {
+        <div class="cp-sideNav-info-box">
+            <div class="cp-info-title"> @thisAttribute.Name </div>
+            <div class="cp-info-content">
+                @if (thisAttribute.AttributeItems != null && thisAttribute.AttributeItems.Count > 0)
+                {
+                    foreach (var item in thisAttribute.AttributeItems)
+                    {
+                        <label class="checkbox__wrapper">
+                            <div class="checkbox--subtle checkbox">
+                                <input type="checkbox" value="@item.ID" class="dummy_item_checker">
+                                <span class="checkbox__symbol"></span>
+                            </div>
+                            <span class="checkbox__texts">@item.Name</span>
+                        </label>
+                    }
+
+                }
+            </div>
+        </div>
+    }
+}

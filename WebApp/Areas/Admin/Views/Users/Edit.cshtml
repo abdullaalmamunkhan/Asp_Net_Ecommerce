@@ -1,0 +1,381 @@
+﻿@model ViewModelsCore.Admin.VMProcessUser
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        @if (Model.User.RoleId == 1)
+        {
+            <h3>Update Super Admin</h3>
+        }
+        else if (Model.User.RoleId == 2)
+        {
+            <h3>Update Admin</h3>
+        }
+        else if (Model.User.RoleId == 3)
+        {
+            <h3>Update User</h3>
+        }
+        else
+        {
+            <h3>Update Customer</h3>
+        }
+
+    </div>
+    <div class="col-6 text-right font-12">
+        <a href="~/admin/dashboard">Admin</a> &gt;
+
+        @if (Model.User.RoleId == 1)
+        {
+            <a href="~/admin/users/superadmins">Super Admin List > </a>
+            <span>Update Super Admin</span>
+        }
+        else if (Model.User.RoleId == 2)
+        {
+            <a href="~/admin/users/admins">Admin List > </a>
+            <span>Update Admin</span>
+        }
+        else if (Model.User.RoleId == 3)
+        {
+            <a href="~/admin/users/vendors">Vendor List > </a>
+            <span>Update User</span>
+        }
+        else
+        {
+            <a href="~/admin/users">Customer List > </a>
+            <span>Update Customer</span>
+        }
+    </div>
+</div>
+
+<form method="post" asp-action="Edit" asp-controller="Users" asp-area="Admin" autocomplete="off" enctype="multipart/form-data" data-parsley-validate>
+    <div class="row">
+        <input type="hidden" asp-for="User.RoleId">
+        <input type="hidden" id="hdnPassword" value="@Model.User.Password">
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>
+
+                        Primary Information
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <input type="hidden" asp-for="User.ID">
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">First name</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="First name" asp-for="User.FirstName" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Last name</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Last name" asp-for="User.LastName" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Email</label>
+                                        <div>
+                                            <input type="email" class="form-control font-14" placeholder="Email" asp-for="User.Email" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Mobile</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Mobile" asp-for="User.Mobile" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Date of Birth</label>
+                                        <div>
+                                            <input type="text" class="dummy_datepicker font-14" placeholder="Date of Birth" asp-for="User.DateOfBirth">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Password</label>
+                                        <div>
+                                            <input type="password" id="Password" class="form-control font-14" placeholder="Password" asp-for="User.Password" required readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Confirm Password</label>
+                                        <div>
+                                            <input type="password" id="ConfirmPassword" asp-for="User.Password" class="form-control font-14" placeholder="Confirm Password" readonly>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4> Primary Address </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Apartment</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Apartment" asp-for="UserInfo.PermanentApartment" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">City</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="City" asp-for="UserInfo.PermanentCity" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">State</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="State" asp-for="UserInfo.PermanentState" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Postal Code</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Postal Code" asp-for="UserInfo.PermanentPostalCode" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Country</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Country" asp-for="UserInfo.PermanentCountry" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Describe Location</label>
+                                        <div>
+                                            <textarea class="form-control font-14" placeholder="Describe Location" asp-for="UserInfo.PermanentAddress" required></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4> Secondary Address </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Apartment</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Apartment" asp-for="UserInfo.TemporaryApartment">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">City</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="City" asp-for="UserInfo.TemporaryCity">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">State</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="State" asp-for="UserInfo.TemporaryState">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label font-14 mb-1">Postal Code</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Postal Code" asp-for="UserInfo.TemporaryPostalCode">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Country</label>
+                                        <div>
+                                            <input type="text" class="form-control font-14" placeholder="Country" asp-for="UserInfo.TemporaryCountry">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-xs-12 mb-10">
+                                        <label class="control-label mb-1">Describe Location</label>
+                                        <div>
+                                            <textarea class="form-control font-14" placeholder="Describe Location" asp-for="UserInfo.TemporaryAddress"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4> Government Information </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-wrap form-wrap2 col-12">
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6 col-xs-12 mb-10">
+                                                <label class="control-label font-14 mb-1">NID No.</label>
+                                                <div>
+                                                    <input type="text" class="form-control font-14" placeholder="NID No." asp-for="UserInfo.NID">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 mb-10">
+                                        <div class="form-group m-t-40">
+                                            <label class="w-100 col-form-label">NID Photo Front</label>
+                                            <label for="upNIDFrontViewer" class="upload-preview">
+                                                @*<img src="~/img/avatar-368.png" id="imgNIDFrontViewer" />*@
+                                                @if (string.IsNullOrEmpty(Model.UserInfo.NIDImageFront) == false)
+                                                {
+                                                    <img src="@Url.Content("~"+Model.UserInfo.NIDImageFront)" id="imgUserProfilePicViewer" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/img/avatar-368.png" id="imgNIDFrontViewer" />
+                                                }
+                                            </label>
+                                            <input type="file" class="hdn-uploder dummy_image_previewer" id="upNIDFrontViewer" name="NIDFront" accept="image/*" target="#imgNIDFrontViewer" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 mb-10">
+                                        <div class="form-group m-t-40">
+                                            <label class="w-100 col-form-label">NID Photo Back</label>
+                                            <label for="upNIDBackViewer" class="upload-preview">
+                                                @*<img src="~/img/avatar-368.png" id="imgNIDBackViewer" />*@
+                                                @if (string.IsNullOrEmpty(Model.UserInfo.NIDImageBack) == false)
+                                                {
+                                                    <img src="@Url.Content("~"+Model.UserInfo.NIDImageBack)" id="imgUserProfilePicViewer" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/img/avatar-368.png" id="imgNIDBackViewer" />
+                                                }
+                                            </label>
+                                            <input type="file" class="hdn-uploder dummy_image_previewer" id="upNIDBackViewer" name="NIDBack" accept="image/*" target="#imgNIDBackViewer" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-6 col-xs-12 mb-10">
+                                        <div class="form-group m-t-40">
+                                            <label class="w-100 col-form-label">Your Standard Photo</label>
+                                            <label for="upUserProfilePicViewer" class="upload-preview">
+                                                @*<img src="~/img/avatar-368.png" id="imgUserProfilePicViewer" />*@
+                                                @if (string.IsNullOrEmpty(Model.UserInfo.ProfileImage) == false)
+                                                {
+                                                    <img src="@Url.Content("~"+Model.UserInfo.ProfileImage)" id="imgUserProfilePicViewer" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/img/avatar-368.png" id="imgUserProfilePicViewer" />
+                                                }
+                                            </label>
+
+                                            <input type="file" class="hdn-uploder dummy_image_previewer" id="upUserProfilePicViewer" name="UserProfilePic" accept="image/*" target="#imgUserProfilePicViewer" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-right">
+                            <div class="5">
+                                <button type="submit" class="btn btn-rounded waves-effect waves-light bg-green font-14 text-white">Update</button>
+                                @if (Model.User.RoleId == 1)
+                                {
+                                    <a asp-action="superadmins" asp-controller="users" asp-area="admin" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                                }
+                                else if (Model.User.RoleId == 2)
+                                {
+                                    <a asp-action="admins" asp-controller="users" asp-area="admin" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                                }
+                                else if (Model.User.RoleId == 3)
+                                {
+                                    <a asp-action="vendors" asp-controller="users" asp-area="admin" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="" asp-controller="users" asp-area="admin" class="btn btn-rounded waves-effect waves-light btn-outline-default font-14">Cancel</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".dummy_image_previewer").change(function () {
+                ReadImageAndPreview(this);
+            });
+
+            var password = $("#hdnPassword").val();
+
+            $("#Password").val(password);
+            $("#ConfirmPassword").val(password);
+
+        });
+
+
+        function ReadImageAndPreview(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                let previewSource = $(input).attr("target");
+                reader.onload = function (e) {
+                    $(previewSource).attr("src", e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+}

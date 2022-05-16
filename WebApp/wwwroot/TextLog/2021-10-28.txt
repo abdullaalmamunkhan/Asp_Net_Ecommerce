@@ -1,0 +1,16 @@
+=======  Exception : 10/28/2021 5:44:07 PM  =======
+Id : 36282532
+Remarks : WebApp
+Error Message : Object reference not set to an instance of an object.
+StackTrace :    at WebApp.Controllers.AccountController.Login(VMLoginProcess model) in F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\WebApp\Controllers\AccountController.cs:line 58
+===================================================
+
+
+=======  Exception : 10/28/2021 5:44:17 PM  =======
+Id : 18194715
+Remarks : WebApp
+Error Message : Object reference not set to an instance of an object.
+StackTrace :    at WebApp.Controllers.AccountController.Login(VMLoginProcess model) in F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\WebApp\Controllers\AccountController.cs:line 58
+===================================================
+
+

@@ -1,0 +1,15 @@
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\ViewModelsCore.deps.json
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\ViewModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\ref\ViewModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\ViewModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\bin\Debug\net5.0\DbModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.csproj.AssemblyReference.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.GeneratedMSBuildEditorConfig.editorconfig
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.AssemblyInfoInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.AssemblyInfo.cs
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.csproj.CoreCompileInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.csproj.CopyComplete
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ref\ViewModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\ViewModelsCore\obj\Debug\net5.0\ViewModelsCore.pdb

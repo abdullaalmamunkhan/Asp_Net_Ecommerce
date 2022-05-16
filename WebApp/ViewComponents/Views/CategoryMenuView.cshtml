@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DbModelsCore.Models.Ecommerce.Catalog.DBProductCategory>
+
+@if (Model != null && Model.Count() > 0)
+{
+    <ul>
+        @foreach (var item in Model)
+        {
+
+            @if (item.Categories != null && item.Categories.Count > 0)
+            {
+                <li>
+                    <a href="@Url.Action("", "Products", new {cat = item.ID , @name=item.Name})">@item.Name</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <ul>
+                        @foreach (var sub in item.Categories)
+                        {
+                            <li><a href="@Url.Action("", "Products", new {cat = sub.ID , @name=sub.Name})">@sub.Name</a></li>
+
+                            @*@if (sub.Categories != null && sub.Categories.Count > 0)
+            {
+                <li>
+                    <a href="@Url.Action("","Products", new {@name=sub.Name, id=sub.ID})">@sub.Name</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <ul>
+                        @foreach (var leave in sub.Categories)
+                        {
+                            <li><a href="@Url.Action("", "Products", new {@name=leave.Name, cat = leave.ID })">@leave.Name</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+
+            }*@
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@Url.Action("", "Products", new {cat = item.ID,@name=item.Name })">@item.Name</a>
+                </li>
+            }
+
+        }
+    </ul>
+
+}

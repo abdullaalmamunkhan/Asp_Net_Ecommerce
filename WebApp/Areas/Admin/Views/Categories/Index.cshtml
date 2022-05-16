@@ -1,0 +1,156 @@
+﻿@model DbModelsCore.Models.Ecommerce.Catalog.DBProductCategory
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Categories</h3>
+    </div>
+    <div class="col-6 text-right font-12"><a href="~/admin/dashboard">Admin</a> &gt;  Categories</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-20 form-card-title">@(Model.ID > 0 ? "Edit Category " + Model.Name: "Add Category")</h4>
+                <form asp-action="@(Model.ID > 0 ? "Edit": "Create")" asp-area="admin" asp-controller="Categories" class="form font-14" autocomplete="off" enctype="multipart/form-data" data-parsley-validate>
+                    <input type="hidden" asp-for="ID">
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group m-t-40 row d-none dummy_show_on_home">
+                        <label class="col-12 col-form-label chk-label"><input type="checkbox" asp-for="IsShowOnHome" class="checkbox mt-3" /><span>&nbsp; Show On Home</span></label>
+                    </div>
+
+                    <div class="form-group m-t-40 row">
+                        <label class="col-12 col-form-label">Name</label>
+                        <div class="col-12">
+                            <input class="form-control" asp-for="Name" type="text" placeholder="Name" required data-parsley-maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-form-label">Parent</label>
+                        <div class="col-12">
+                            <select class="form-control" id="ddlCategoryList" asp-for="ParentId" asp-items="@(new SelectList(ViewBag.ListOfCategory, "Id", "Name","Choose..."))">
+                                <option selected="" value="">Choose...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12 col-form-label">Description</label>
+                        <div class="col-12">
+                            <textarea class="form-control" asp-for="Description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group m-t-40">
+                        <label class="w-100 col-form-label">Category Image</label>
+                        <label for="upCategoryImageViewer" class="upload-preview">
+                            @if (string.IsNullOrEmpty(Model.ImageUrl) == false)
+                            {
+                                <img src="@Url.Content("~"+Model.ImageUrl)" id="imgCategoryImageViewer"/>
+                            }
+                            else
+                            {
+                                <img src="~/img/avatar-368.png" id="imgCategoryImageViewer"/>
+                            }
+                        </label>
+                        <input type="file" class="hdn-uploder dummy_image_previewer" id="upCategoryImageViewer" name="CategoryImage" accept="image/*" target="#imgCategoryImageViewer" />
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-10 pull-left tx-16 w-100">Categories <a asp-action="" asp-controller="Categories" asp-area="admin" class="btn btn-primary float-right btn-sm">Add New</a></h4>
+                <div class="table-responsive mt-40">
+                    <table id="tblCategoryTable" class="display nowrap table table-hover table-striped basic-t">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Parent</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section DataTable{
+
+    <script>
+        $(document).ready(function () {
+            var column = [
+                { "data": "id" },
+                { "data": "name" },
+                { "data": "fullName" },
+                { "data": "createdDate" },
+                { "data": "id" },
+            ];
+
+            $('#tblCategoryTable').DataTable({
+                "ajax": basedURL + "/admin/categories/all-categories",
+                columnDefs: [
+                    {
+                        'targets': 4,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = "<a href='" + basedURL + "/admin/categories?id=" + data + "' class='btn btn-success grid-btn'><i class='fa fa-pencil'></i></a>";
+                            }
+                            return data;
+                        }
+                    }
+                ],
+                "rowCallback": function (nRow, aData, iDisplayIndex) {
+                    var oSettings = this.fnSettings();
+                    $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+                    return nRow;
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                aoColumns: column,
+                rowId: 'id',
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                deferRender: true
+            });
+
+
+            $("#ddlCategoryList").change(function () {
+                ToggleIsShowOnHome();
+            });
+
+            ToggleIsShowOnHome();
+        })
+
+        function ToggleIsShowOnHome() {
+            let parentCatId = $.trim($("#ddlCategoryList").val());
+            if (parentCatId != "") {
+                $(".dummy_show_on_home").removeClass("d-none");
+            } else {
+                $(".dummy_show_on_home").addClass("d-none");
+                $("#IsShowOnHome").prop('checked', false);
+            }
+        }
+    </script>
+
+}

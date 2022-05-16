@@ -1,0 +1,15 @@
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\DbModelsCore.deps.json
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\DbModelsCore.runtimeconfig.json
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\DbModelsCore.runtimeconfig.dev.json
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\ref\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\bin\Debug\net5.0\DbModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.GeneratedMSBuildEditorConfig.editorconfig
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.AssemblyInfoInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.AssemblyInfo.cs
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.csproj.CoreCompileInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\ref\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.genruntimeconfig.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\DbModelsCore\obj\Debug\net5.0\DbModelsCore.csproj.AssemblyReference.cache

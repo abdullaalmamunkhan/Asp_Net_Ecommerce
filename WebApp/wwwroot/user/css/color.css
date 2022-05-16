@@ -1,0 +1,36 @@
+.top-header_links .header-link-items li a:hover,
+.top-header_links .header-link-items .active-item a,
+.fs-header .fs-status-text div,
+.fs-product-more-btn a,
+.similar-product .product-item-price,
+footer .footer-first .shopping-status .title,
+.cp-info-content a {
+    color: #1E9A45;
+}
+
+.login-wrapper .login-btn .submit-button,
+.price-info-maxMin button:focus,
+.price-info-maxMin button {
+    background: #1E9A45;
+}
+
+.fs-product-more-btn a,
+.price-info-maxMin button:focus,
+.price-info-maxMin button,
+.checkbox input[type="checkbox"]:hover~.checkbox__symbol,
+.checkbox input[type="checkbox"]:checked~.checkbox__symbol,
+.checkbox--subtle input[type="checkbox"]:hover:checked~.checkbox__symbol,
+.checkbox__symbol::after,
+.checkbox__symbol::before {
+    border-color: #1E9A45;
+}
+
+nav li:hover i,
+nav li a:hover,
+.pd-header .pd-store-btn a,
+.hp-jfy-pd-loadMore button,
+.footer-third .footer-about a,
+.login-wrapper .login-other a,
+.login-wrapper .login-forgot a {
+    color: #1a9cb7;
+}

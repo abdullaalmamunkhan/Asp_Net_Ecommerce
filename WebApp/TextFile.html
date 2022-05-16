@@ -1,0 +1,193 @@
+﻿<form action="#" id="wizard">
+            <!-- SECTION 1 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4> General </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    <div class="form-wrap form-wrap2 col-12">
+                                        <div class="form-group">
+                                            <label class="control-label font-16 mb-1">Product Name</label>
+                                            <div>
+                                                <input type="text" class="form-control font-14" asp-for="Product.Name" placeholder="Name">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label font-16 mb-1">Short Description</label>
+                                            <div>
+                                                <textarea type="text" class="form-control font-14" asp-for="Product.ShortDescription" placeholder="Short description"> </textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label font-16 mb-1">Description</label>
+                                            <div>
+                                                <textarea type="text" id="txtArFullDescription" class="form-control font-14" asp-for="Product.FullDescription" placeholder="Short description"> </textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4> Pricing </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Old Price</label>
+                                            <div>
+                                                <input type="number" class="form-control font-14" asp-for="Product.OldPrice" id="txtNumOldPrice">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">New Price</label>
+                                            <div>
+                                                <input type="number" class="form-control font-14" asp-for="Product.NewPrice" id="txtNumNewPrice">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Discount</label>
+                                            <div>
+                                                <input type="number" class="form-control font-14" asp-for="Product.DiscountInPercent" id="txtNumDiscountInPercent">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3 -->
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4> Grouping </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Main Category</label>
+                                            <div>
+                                                <select id="txtCmbCategoryList" class="font-14"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1"> Sub Category</label>
+                                            <div>
+                                                <select id="txtCmbSubCategoryList" class="font-14"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Categories</label>
+                                            <div>
+                                                <select id="txtMltCategories" class="font-14"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card-header">
+                            <h4> Filter Options </h4>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Attribute</label>
+                                            <div>
+                                                <select id="txtMltAttributeList" class="font-14"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="control-label font-14 mb-1">Items</label>
+                                            <div>
+                                                <select id="txtMltAttributeItemList" class="font-14"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </section>
+
+            <h2></h2>
+            <section>
+                <div class="inner">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card-header">
+                            <h4> Gallery </h4>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row pt-3">
+                                    <div class="col-lg-12 col-sm-12">
+                                        <div class="wrapper">
+                                            <div class="dropZoneElement">
+                                                <input name="files" id="files" type="file" />
+                                                <div class="textWrapper">
+                                                    <p class="dropImageHereText">Drop image here to upload</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </section>
+        </form>

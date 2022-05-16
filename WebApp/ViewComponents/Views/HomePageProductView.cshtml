@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ViewModelsCore.VMEcom.VMList.VMProductFilterList>
+@if (Model != null && Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <div class="col-md-2">
+            <div class="product-item ">
+                <a href="@Url.Action("details","products", new { @id=item.ProductID, @name=item.ProductNAME})">
+                    <div class="product-item-img">
+                        <img src="@item.FeatureImage" class="w-100 h-100" alt="@item.ProductNAME">
+                    </div>
+                    <div class="product-item-text">
+                        <div class="product-item-title">@item.ProductNAME</div>
+                        <div class="product-item-price">
+                            <span class="currency">৳</span>&nbsp;<span class="price">@item.NewPrice</span>
+                        </div>
+                        <div class="product-item-origin-price">
+                            <span class="product-origin-price">
+                                <span class="currency">৳</span>&nbsp;<span class="price">@item.OldPrice</span>
+                            </span>
+                            <span class="product-discount">
+                                -@item.DiscountInPercent%
+                            </span>
+                        </div>
+                        <div class="product-item-ratings mt-2">
+                            <div class="rating-star pull-left">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="rating-count pull-left">(365)</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,271 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+@section ScriptBeforeLoad{
+    <link href="~/user/zoom/xzoom.css" rel="stylesheet" />
+}
+<section class="main-content-wrap" style="background-color: transparent;">
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb-list">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Home</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Mobiles & Tablets</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Mobiles</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Realme Mobiles</span></li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                
+            </div>
+        </div>
+
+        <!-- pdp main info -->
+        <div class="pdp-main-info">
+            <div class="pdp-gallery-info">
+                <div class="pdp-pd-gallery-box">
+                    <div class="gallery-preview-panel">
+                        <div class="xzoom-container">
+                            <img class="xzoom" id="xzoom-default" src="@Url.Content("~/products/16a0bdc6-6a2c-4785-8679-d94e33110847.jpg")" xoriginal="@Url.Content("~/products/16a0bdc6-6a2c-4785-8679-d94e33110847.jpg")" />
+                            <div class="xzoom-thumbs">
+                                <a href="@Url.Content("~/products/16a0bdc6-6a2c-4785-8679-d94e33110847.jpg")"><img class="xzoom-gallery" width="80" src="@Url.Content("~/products/16a0bdc6-6a2c-4785-8679-d94e33110847.jpg")" xpreview="@Url.Content("~/products/16a0bdc6-6a2c-4785-8679-d94e33110847.jpg")"></a>
+                                <a href="@Url.Content("~/products/6b5a1bfe-1e76-4ff4-8051-0244fb132168.jpg")"><img class="xzoom-gallery" width="80" src="@Url.Content("~/products/6b5a1bfe-1e76-4ff4-8051-0244fb132168.jpg")" title="The description goes here"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdp-pd-details-info">
+                <div class="pdp-pd-details">
+                    <div class="pdp-pd-title">
+                        <span>Mozammel Special Chinigura Rice 1Kg</span>
+                    </div>
+                    <div class="pdp-pd-review-summery">
+                        <div class="pdp-review-star d-inline-block">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <a href="#" class="d-inline-block">1647 Ratings</a>
+                        <div class="pdp-review-summary_divider d-inline-block"></div>
+                        <a href="#" class="d-inline-block">69 Answered Questions</a>
+                    </div>
+                    <div class="pdp-pd-brand">
+                        <span class="pdp-pd-brand__name d-inline-block">Brand: </span>
+                        <a class="pdp-link d-inline-block" href="#">Mozammel</a>
+                        <div class="pdp-pd-brand__divider d-inline-block">
+                        </div>
+                        <a class="pdp-link d-inline-block" href="#">More Canned, Dry &amp; Packaged Foods from Mozammel</a>
+                    </div>
+                    <div class="pdp-pd-price-info">
+                        <div class="product-item-price">
+                            <span class="currency">৳</span><span class="price">149</span>
+                        </div>
+                        <div class="product-item-origin-price">
+                            <span class="product-origin-price">
+                                <span class="currency">৳</span><span class="price">650</span>
+                            </span>
+                            <span class="product-discount">
+                                -77%
+                            </span>
+
+                        </div>
+                        <div class="pd-qtty-info">
+                            <span>Quantity :</span>
+                            <div class="quantity-warp">
+                                <button type="button" class="mcbi_sub mcbi_sub1 disabled">-</button> <input type="number" value="1" class="mcbi_view"> <button type="button" class="mcbi_add mcbi_add2">+</button>
+                            </div>
+                        </div>
+                        <div class="pdp-add-to-cart mt-2">
+                            <button class="buy-now_btn">Buy Now</button>
+                            <button class="add-to-cart_btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pdp-pd-delivery-info">
+                <div class="delivery">
+                    <div class="delivery-header">
+                        <div class="delivery-header__title">Delivery Options</div>
+                        <div class="delivery-header__tooltip">
+                            <div>
+                                <i class="fas fa-info">
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delivery__header">
+                        <div class="location delivery__location">
+                            <div class="location__current">
+                                <div class="location__body">
+                                    <i class="fas fa-map-marker-alt">
+                                    </i>
+                                    <div class="location__address">Dhaka, Dhaka North, Banani Road No. 12 - 19</div>
+                                    <div class="location__link-change">
+                                        <a class="location-link" href="#">CHANGE</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery__options">
+                            <div class="delivery__option">
+                                <div class="delivery-option-item delivery-option-item_type_FBL">
+                                    <div class="delivery-option-item__body">
+                                        <i class="fas fa-map-marker-alt">
+                                        </i>
+                                        <div class="delivery-option-item__info">
+                                            <div class="delivery-option-item__title">Fulfilled by Daraz</div>
+                                        </div>
+                                        <div class="delivery-option-item__shipping-fee"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="delivery__content">
+                        <div class="delivery__options">
+                            <div class="delivery__option">
+                                <div class="delivery-option-item delivery-option-item_type_standard">
+                                    <div class="delivery-option-item__body">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div class="delivery-option-item__info">
+                                            <div class="delivery-option-item__title">Home Delivery</div>
+                                            <div class="delivery-option-item__time">4 - 6 days</div>
+                                        </div>
+                                        <div class="delivery-option-item__shipping-fee">৳ 35</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="delivery__option">
+                                <div class="delivery-option-item delivery-option-item_type_COD">
+                                    <div class="delivery-option-item__body">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <div class="delivery-option-item__info">
+                                            <div class="delivery-option-item__title">Cash on Delivery Available</div>
+                                        </div>
+                                        <div class="delivery-option-item__shipping-fee"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty">
+                    <div class="delivery">
+                        <div class="delivery-header">
+                            <div class="delivery-header__title">Delivery Options</div>
+                            <div class="delivery-header__tooltip">
+                                <div>
+                                    <i class="fas fa-info">
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery__header">
+                            <div class="location delivery__location">
+                                <div class="location__current">
+                                    <div class="location__body">
+                                        <div class="img">
+                                            <img src="images/check.png" alt="">
+                                        </div>
+                                        <div class="location__address">Dhaka, Dhaka North, Banani Road No. 12 - 19</div>
+                                        <div class="location__link-change">
+                                            <a class="location-link" href="#">CHANGE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="delivery__options">
+                                <div class="delivery__option">
+                                    <div class="delivery-option-item delivery-option-item_type_FBL">
+                                        <div class="delivery-option-item__body">
+                                            <div class="img">
+                                                <img src="images/check.png" alt="">
+                                            </div>
+                                            <div class="delivery-option-item__info">
+                                                <div class="delivery-option-item__title">Fulfilled by Daraz</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="delivery__content">
+                            <div class="delivery__options">
+                                <div class="delivery__option">
+                                    <div class="delivery-option-item delivery-option-item_type_standard">
+                                        <div class="delivery-option-item__body">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <div class="delivery-option-item__info">
+                                                <div class="delivery-option-item__title">Home Delivery</div>
+                                                <div class="delivery-option-item__time">4 - 6 days</div>
+                                            </div>
+                                            <div class="delivery-option-item__shipping-fee">৳ 35</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="seller-info">
+                    <div class="seller-name ">
+                        <div class="seller-name__wrapper ">
+                            <div class="seller-name__title " data-spm-anchor-id="a2a0e.pdp.seller.i0.386c2110i3I2tV ">Sold by</div>
+                            <div class="seller-name__detail " data-spm="seller ">
+                                <a class="pdp-link pdp-link_size_l pdp-link_theme_black seller-name__detail-name ">Daraz</a>
+                                <a><img src="https://laz-img-cdn.alicdn.com/tfs/TB1xWqErhjaK1RjSZFAXXbdLFXa-450-48.png " class="pdp-seller-badge "></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pdp-seller-info-pc ">
+                        <div class="info-content ">
+                            <div class="seller-info-title ">Positive Seller Ratings</div>
+                            <div class="seller-info-value rating-positive ">90%</div>
+                        </div>
+                        <div class="info-content ">
+                            <div class="seller-info-title ">Ship on Time</div>
+                            <div class="seller-info-value gray-text ">not enough data</div>
+                        </div>
+                        <div class="info-content ">
+                            <div class="seller-info-title ">Seller Size</div>
+                            <div class="seller-size-icon ">
+                                <div>
+                                    <div class="seller-size_column seller-size_column_active seller-size_column_1 "></div>
+                                    <div class="seller-size_column seller-size_column_active seller-size_column_2 "></div>
+                                    <div class="seller-size_column seller-size_column_active seller-size_column_3 "></div>
+                                    <div class="seller-size_column seller-size_column_active seller-size_column_4 "></div>
+                                    <div class="seller-size_column seller-size_column_active seller-size_column_5 "></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section ScriptAfterLoad{
+    <script src="~/user/zoom/xzoom.min.js"></script>
+    <script src="~/user/zoom/foundation.min.js"></script>
+    <script src="~/user/zoom/setup.js"></script>
+}

@@ -1,0 +1,182 @@
+﻿@model DbModelsCore.Models.Ecommerce.Catalog.DBSliderImage
+@{
+    ViewData["Title"] = "Slider Image";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Slider Image</h3>
+    </div>
+    <div class="col-6 text-right font-12"><a href="index.html">Admin</a> &gt;  Slider Image</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-20 form-card-title">@(Model.ID > 0 ? "Edit Slider Image " : "Add Slider Image")</h4>
+                <form asp-action="@(Model.ID > 0 ? "Edit": "Create")" asp-area="admin" asp-controller="sliderimages" class="form font-14" autocomplete="off" enctype="multipart/form-data" data-parsley-validate>
+                    <input type="hidden" asp-for="ID">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group m-t-40 row">
+                        <label class="col-12 col-form-label">Image Title<sup>*</sup></label>
+                        <div class="col-12">
+                            <input class="form-control" asp-for="ImageTitle" type="text" placeholder="Image Title" required data-parsley-maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group m-t-40 row">
+                        <label class="col-12 col-form-label">Color Code<sup>*</sup></label>
+                        <div class="col-12">
+                            <input class="form-control" asp-for="ColorCode" type="text" placeholder="#8E020F" required data-parsley-maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group m-t-40">
+                        <label class="w-100 col-form-label">Slider Image</label>
+                        <label for="imgInp" class="upload-preview">
+                            @if (string.IsNullOrEmpty(Model.ImageUrl) == false)
+                            {
+                                <img src="@Url.Content("~"+Model.ImageUrl)" id="uploadPreview" name="UploadImage" />
+                            }
+                            else
+                            {
+                                <img src="~/img/avatar-368.png" id="uploadPreview" name="UploadImage" />
+                            }
+
+                        </label>
+                        <input type="file" class="hdn-uploder" id="imgInp" accept="image/*" name="UploadImage" />
+                    </div>
+                    <div class="form-group m-t-40">
+                        <label class="d-block">Active</label>
+                        <input type="checkbox" asp-for="ImageViewer" class="checkbox" checked="checked" />
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-10 pull-left tx-16 w-100">Slider Image <a asp-action="" asp-controller="sliderimages" asp-area="admin" class="btn btn-primary float-right btn-sm">Add New</a></h4>
+                <div class="table-responsive mt-40">
+                    <table id="tblTagsTable" class="display nowrap table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Image</th>
+                                <th>Active</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section DataTable{
+
+    <script>
+        $(document).ready(function () {
+            var column = [
+                { "data": "id" },
+                { "data": "imageTitle" },
+                { "data": "imageUrl" },
+                { "data": "imageViewer" },
+                { "data": "id" },
+            ];
+
+            $('#tblTagsTable').DataTable({
+                "ajax": basedURL + "/admin/sliderimages/all-slider-image-list",
+                columnDefs: [
+                    {
+                        'targets': 2,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = "<img src='" + basedURL + "/" + row.imageUrl + "' class='tbl-img' />";
+
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        'targets': 3,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                if (row.imageViewer == true) {
+
+                                    data = "<span class='text-success'>YES</span>";
+                                } else {
+                                    data = "<span class='text-danger'>NO</span>";
+                                }
+
+                            }
+                            return data;
+                        }
+                    },
+                    {
+                        'targets': 4,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = "<a href='" + basedURL + "/admin/sliderimages?id=" + data + "' class='btn btn-success grid-btn'><i class='fa fa-pencil'></i></a>";
+                            }
+                            return data;
+                        }
+                    }
+                ],
+                "rowCallback": function (nRow, aData, iDisplayIndex) {
+                    var oSettings = this.fnSettings();
+                    $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+                    return nRow;
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                aoColumns: column,
+                rowId: 'id',
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                deferRender: true
+            });
+
+            $("#imgInp").change(function () {
+                readURL(this);
+            });
+        });
+        function readURL(input) {
+            var fileName = document.getElementById("imgInp").value;
+            var idxDot = fileName.lastIndexOf(".") + 1;
+            var extn = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg" || extn == "webp") {
+                if (typeof (FileReader) != "undefined") {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $("#uploadPreview").attr("src", e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            } else {
+                alert("Pls select only images");
+            }
+        }
+    </script>
+
+}

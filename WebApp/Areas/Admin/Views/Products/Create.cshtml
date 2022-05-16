@@ -1,0 +1,680 @@
+﻿@model ViewModelsCore.VMEcom.VMProcess.VMProduct.VMProcessProduct
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Create Product</h3>
+    </div>
+    <div class="col-6 text-right font-12">
+        <a href="~/admin/dashboard">Admin</a> &gt;
+        <a asp-action="" asp-controller="Products" asp-area="Admin">Product List</a> &gt;
+        Create Product
+    </div>
+</div>
+
+<form method="post" id="wizard" asp-action="Create" asp-controller="Products" asp-area="admin" autocomplete="off" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="tab-content">
+                <div class="tab-pane active dummy_tab_pane" id="tabGeneral">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4> General </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="form-wrap form-wrap2 col-12">
+                                            <div class="form-group mb-0">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label font-16 mb-1">Product Name</label>
+                                                            <div>
+                                                                <input type="text" class="form-control font-14 dummy_general_field" asp-for="Product.Name" placeholder="Name" data-parsley-group="general" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label font-14 mb-1">SKU</label>
+                                                            <div>
+                                                                <input type="text" class="form-control font-14" asp-for="Product.SKU" data-parsley-group="general">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label font-14 mb-1">GTIN</label>
+                                                            <div>
+                                                                <input type="text" class="form-control font-14" asp-for="Product.GTIN" data-parsley-group="general">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label font-16 mb-1">Short Description</label>
+                                                <div>
+                                                    <textarea type="text" class="form-control font-14" asp-for="Product.ShortDescription" placeholder="Short description" data-parsley-group="general" required> </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label font-16 mb-1">Admin Comments</label>
+                                                <div>
+                                                    <textarea type="text" class="form-control font-14" asp-for="Product.AdminComment" placeholder="Admin Comments" data-parsley-group="general"> </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label font-16 mb-1">Description</label>
+                                                <div>
+                                                    <textarea type="text" id="txtArFullDescription" class="form-control font-14" asp-for="Product.FullDescription" placeholder="Short description" data-parsley-group="general" required> </textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="button" class="btn btn-primary btnNext float-right" next="#tabPricing" vld="general">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane dummy_tab_pane" id="tabPricing">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4> Pricing </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">Old Price</label>
+                                                <div>
+                                                    <input type="number" class="font-14" asp-for="Product.OldPrice" id="txtNumOldPrice" data-parsley-group="pricing">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">New Price</label>
+                                                <div>
+                                                    <input type="number" class="font-14" asp-for="Product.NewPrice" id="txtNumNewPrice" data-parsley-group="pricing" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">Discount</label>
+                                                <div>
+                                                    <input type="number" class="font-14" asp-for="Product.DiscountInPercent" id="txtNumDiscountInPercent" data-parsley-group="pricing">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">Discount Amount</label>
+                                                <div>
+                                                    <input type="number" class="font-14" asp-for="Product.DiscountAmount" id="txtNumDiscountAmount" data-parsley-group="pricing">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="d-block">Is Stoke Track?</label>
+                                                <input type="checkbox" asp-for="Product.IsTrackStoke" class="checkbox" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">Stock Quantity</label>
+                                                <div>
+                                                    <input type="number" class="font-14 dummy_stock_quantity" asp-for="Product.StokeAmount" id="txtNumStokeAmount" data-parsley-group="pricing" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="control-label font-14 mb-1">Minimu Stock Quantity</label>
+                                                <div>
+                                                    <input type="number" class="font-14 dummy_stock_quantity" asp-for="Product.MinimumStokeLimit" id="txtMinimumStokeLimit" data-parsley-group="pricing" required>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-primary btnNext float-right" next="#tabFilterOptions" vld="pricing">Next</a>
+                                    <a class="btn btn-primary btnPrevious float-left" prev="#tabGeneral">Previous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane dummy_tab_pane" id="tabFilterOptions">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4> Filter Options </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="control-label font-14 mb-1">Category</label>
+                                                        <div>
+                                                            <select class="" id="ddlProdcutCategories" asp-for="Product.CategoryId" asp-items="@(new SelectList(ViewBag.ListOfCategory, "Id", "Name","Choose..."))" data-parsley-group="filteroption" required>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-4">
+                                            <button type="button" class="btn btn-primary" onclick="DupplicateDynamicElement('.dummy_dynamic_Attribute')">Add New Attribute</button>
+                                        </div>
+
+                                        @if (Model.ProductAttributeItemMaps != null)
+                                        {
+                                            int j = 0;
+                                            foreach (var item in Model.ProductAttributeItemMaps)
+                                            {
+                                                <div class="col-md-3 dummy_dynamic_Attribute">
+                                                    <div class="theme-box">
+                                                        <div class="attribute-remover">
+                                                            @if (j > 0)
+                                                            {
+                                                                <span onclick="RemoveThisItem(this);">X</span>
+                                                            }
+                                                        </div>
+                                                        @Html.HiddenFor(m => m.ProductAttributeItemMaps[j].ProductId)
+                                                        <div class="w-100 pr-2 pl-2">
+                                                            <div class="form-group">
+                                                                <label class="control-label font-14 mb-1"></label>
+                                                                <div>
+                                                                    <select id="txtMltAttributeList" asp-for="ProductAttributeItemMaps[j].AttributeId" class="form-control dummy_PorductAttributeList font-14" data-parsley-group="filteroption" required>
+                                                                        <option selected="" value=""></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label font-14 mb-1"></label>
+                                                                <div>
+                                                                    <select id="txtMltAttributeItemList" asp-for="ProductAttributeItemMaps[j].ItemAttributeId" class="form-control dummy_attitemList font-14" data-parsley-group="filteroption" required>
+                                                                        <option selected="" value=""></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+
+
+                                        <div class="col-md-12 mt-4">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <input type="hidden" asp-for="SelectedTags" id="hdnSelectedTags">
+                                                        <label class="control-label font-14 mb-1">Tags</label>
+                                                        <div>
+                                                            <select class="" id="ddlProductTags" asp-items="@(new SelectList(ViewBag.ListOfProductTags, "Id", "Name","Choose..."))">
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-primary btnNext float-right" next="#tabGallery" vld="filteroption">Next</a>
+                                    <a class="btn btn-primary btnPrevious float-left" prev="#tabPricing">Previous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane dummy_tab_pane" id="tabGallery">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4> Gallery </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+                                                <div class="col-lg-8 col-sm-8">
+                                                    <div class="form-group">
+                                                        <div class="gallery-uploader">
+                                                            @if (Model.ImageGalleryLists != null)
+                                                            {
+                                                                int j = 0;
+                                                                foreach (var item in Model.ImageGalleryLists)
+                                                                {
+
+                                                                    <input type="hidden" value="@item.ImageURL" asp-for="ImageGalleryLists[j].ImageURL">
+                                                                    <input type="hidden" value="@item.ImageName" asp-for="ImageGalleryLists[j].ImageName">
+                                                                    <div class="gal-item">
+                                                                        <div class="img-feature-chk">
+                                                                            <input type="checkbox" asp-for="ImageGalleryLists[j].IsFetured" class="checkbox dummy_featured_image" title="Featured" src="@item.ImageURL" />
+                                                                            <input type="checkbox" asp-for="ImageGalleryLists[j].IsGallery" class="checkbox" title="Add to Galler" />
+                                                                        </div>
+                                                                        <img src="@item.ImageURL" alt="@item.ImageName" class="gl-image" title="@item.ImageURL">
+                                                                    </div>
+
+                                                                    j++;
+                                                                }
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-4">
+                                                    <div class="form-group">
+                                                        <label class="col-12 col-form-label">Featured Image</label>
+                                                        <label for="imgInp" class="fetured-preview">
+                                                            <img src="~/img/avatar-368.png" id="uploadPreview" name="UploadImage" />
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-primary btnNext float-right" next="#tabConditions" vld="pricing">Next</a>
+                                    <a class="btn btn-primary btnPrevious float-left" prev="#tabFilterOptions">Previous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane dummy_tab_pane" id="tabConditions">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4> Conditions </h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row pt-3">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Show On Home</label>
+                                                        <input type="checkbox" asp-for="Product.IsShowOnHome" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Allow Review</label>
+                                                        <input type="checkbox" asp-for="Product.IsOpenReview" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Make Draft</label>
+                                                        <input type="checkbox" asp-for="Product.IsDraft" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Enable Shop Button</label>
+                                                        <input type="checkbox" asp-for="Product.IsEnableShop" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Is New</label>
+                                                        <input type="checkbox" asp-for="Product.IsNew" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Is Display Available</label>
+                                                        <input type="checkbox" asp-for="Product.IsDisplayAvaiable" class="checkbox" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="d-block">Is Returnable</label>
+                                                        <input type="checkbox" asp-for="Product.IsReturnAble" class="checkbox" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-primary float-right" type="submit">Save</button>
+                                    <a class="btn btn-primary btnPrevious float-left" prev="#tabGallery">Previous</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+
+    <script>
+        var productEditor;
+        var numOldPriceBox;
+        var numNewPriceBox;
+        var numDiscountInPercent;
+        var numDiscountAmountBox;
+        var numStokeAmountBox;
+        var numMinimumStokeLimitBox;
+        var ddlCategoryCombo;
+        var ddlSubCategoryCombo;
+        var mltCategoryListCombo;
+        var mltProductAttributs;
+        var mltProductAttributeItems;
+        var mltProductTagList;
+        $(document).ready(function () {
+
+            $('.btnNext').click(function () {
+
+                let nextPrevious = $.trim($(this).attr("next"));
+                let validationGroup = $.trim($(this).attr("vld"));
+                let isTabValid = $('#wizard').parsley().validate(validationGroup);
+
+                if (isTabValid == true) {
+                    $(".dummy_tab_pane").removeClass("active show in");
+                    $(nextPrevious).addClass("active show in");
+                }
+            });
+
+            $('.btnPrevious').click(function () {
+                $(".dummy_tab_pane").removeClass("active show in");
+                let nextPrevious = $.trim($(this).attr("prev"));
+                $(nextPrevious).addClass("active show in");
+            });
+
+            numOldPriceBox = $("#txtNumOldPrice").kendoNumericTextBox().data("kendoNumericTextBox");
+            numNewPriceBox = $("#txtNumNewPrice").kendoNumericTextBox().data("kendoNumericTextBox");
+            numDiscountInPercent = $("#txtNumDiscountInPercent").kendoNumericTextBox({
+                format: "p0",
+                min: 0,
+                max: 0.1,
+                step: 0.01
+            }).data("kendoNumericTextBox");
+
+            numDiscountAmountBox = $("#txtNumDiscountAmount").kendoNumericTextBox().data("kendoNumericTextBox");
+            numStokeAmountBox = $("#txtNumStokeAmount").kendoNumericTextBox().data("kendoNumericTextBox");
+            numMinimumStokeLimitBox = $("#txtMinimumStokeLimit").kendoNumericTextBox().data("kendoNumericTextBox");
+
+            productEditor = $("#txtArFullDescription").kendoEditor({
+                tools: [
+                    "bold",
+                    "italic",
+                    "underline",
+                    "justifyLeft",
+                    "justifyCenter",
+                    "justifyRight",
+                    "insertUnorderedList",
+                    "createLink",
+                    "unlink",
+                    "insertImage",
+                    "tableWizard",
+                    "createTable",
+                    "addRowAbove",
+                    "addRowBelow",
+                    "addColumnLeft",
+                    "addColumnRight",
+                    "deleteRow",
+                    "deleteColumn",
+                    "mergeCellsHorizontally",
+                    "mergeCellsVertically",
+                    "splitCellHorizontally",
+                    "splitCellVertically",
+                    "tableAlignLeft",
+                    "tableAlignCenter",
+                    "tableAlignRight",
+                    "fontSize",
+                    "foreColor",
+                    "backColor",
+                ]
+            }).data("kendoEditor");
+
+
+            mltProductTagList = $("#ddlProductTags").kendoMultiSelect({
+                change: OnChangeTagMultiSelect,
+            }).data("kendoMultiSelect");
+
+            ddlCategoryCombo = $("#ddlProdcutCategories").kendoComboBox({
+                placeholder: "Choose...",
+                dataTextField: "name",
+                dataValueField: "id",
+                filter: "contains",
+                minLength: 2,
+                index: 0,
+                change: function (e) {
+                    var selectedItem = ddlCategoryCombo.dataItem(ddlCategoryCombo.select());
+
+                    if (selectedItem === undefined || selectedItem === null) {
+                        $(".dummy_draft_lc_message").text("Please select a valid draft lc.");
+                    } else {
+                        $("#txtMltAttributeList").empty();
+                        let catId = selectedItem.id;
+                        LoadAttributeDropdownByCatId(catId);
+
+                        $(".dummy_PorductAttributeList").change(function () {
+                            let attributeId = $.trim($(this).val());
+                            LoadAttributeItemsDropdown(attributeId, this);
+                        });
+                    }
+                }
+            }).data("kendoComboBox");
+
+
+            ddlCategoryCombo.value();
+
+
+            $("#Product_IsTrackStoke").change(function () {
+                IsStockTrackChangeEvent();
+            });
+
+            IsStockTrackChangeEvent();
+
+            $("#imgInp").change(function () {
+                readURL(this);
+            });
+
+
+            $(".dummy_featured_image").change(function () {
+                $(".dummy_featured_image").not(this).prop('checked', false);
+                let feturedSRC = $.trim($(this).attr("src"));
+                $("#uploadPreview").attr("src", feturedSRC);
+            });
+
+            let selectedTags = $.trim($("#hdnSelectedTags").val()).split(',');
+            let res = $.merge([], selectedTags);
+            mltProductTagList.value(res);
+
+        });
+
+
+        function OnChangeTagMultiSelect() {
+            $("#hdnSelectedTags").val(mltProductTagList.value());
+        }
+
+        function readURL(input) {
+            var fileName = document.getElementById("imgInp").value;
+            var idxDot = fileName.lastIndexOf(".") + 1;
+            var extn = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extn == "gif" || extn == "png" || extn == "jpg" || extn == "jpeg") {
+                if (typeof (FileReader) != "undefined") {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $("#uploadPreview").attr("src", e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                } else {
+                    alert("This browser does not support FileReader.");
+                }
+            } else {
+                alert("Pls select only images");
+            }
+        }
+
+        function IsStockTrackChangeEvent() {
+            if ($("#Product_IsTrackStoke").is(":checked")) {
+                numStokeAmountBox.enable();
+                numMinimumStokeLimitBox.enable();
+                $(".dummy_stock_quantity").attr("required", "required");
+            } else {
+                numStokeAmountBox.value("");
+                numStokeAmountBox.enable(false);
+                numMinimumStokeLimitBox.value("");
+                numMinimumStokeLimitBox.enable(false);
+                $(".dummy_stock_quantity").removeAttr("required");
+            }
+        }
+
+        function LoadAttributeDropdownByCatId(catId) {
+
+            let draftLcURL = $.trim(basedURL + '/Admin/Products/attribute-list-by-category?categoryId=' + catId);
+            $(".dummy_PorductAttributeList").append($('<option/>', { value: "", text: "Choose..." }));
+            $.ajax({
+                url: draftLcURL,
+                type: 'get',
+                success: function (result) {
+
+                    if (result.data != null) {
+                        $(result.data).each(function (index, item) {
+                            $(".dummy_PorductAttributeList").append($('<option/>', { value: item.id, text: item.name }));
+                        });
+
+                    }
+                },
+                error: function (er) {
+                    $.notify("Something is Wrong!", "error");
+                }
+            });
+        }
+
+
+        function RemoveThisItem(element) {
+            $(element).closest("div.dummy_dynamic_Attribute").remove();
+            $($.trim(".dummy_dynamic_Attribute")).each(function (iteration, value) {
+                let currentRow = $(this);
+                $.each(currentRow.find('select,input[type=text],input[type=number],input[type=hidden]'), function (i, val) {
+
+                    let oldName = $.trim($(this).attr('name'));
+                    let oldPrefix = yourString = oldName.replace(/[^\d.]/g, '');
+
+                    let newName = oldName.replace('[' + (parseInt(oldPrefix)) + ']', '[' + (parseInt(iteration)) + ']');
+                    $(this).attr('name', newName);
+                    let oldID = $.trim($(this).attr('id'));
+                    if (typeof oldID !== "undefined" && oldID != "") {
+                        let newDynamicId = oldID.replace((parseInt(oldPrefix)), (parseInt(iteration)));
+                        $(this).attr('id', newDynamicId);
+                    }
+                });
+            });
+        }
+
+
+
+        function LoadAttributeItemsDropdown(attributeId, elementId) {
+            let draftLcURL = $.trim(basedURL + '/Admin/Products/items-list-by-attribute?attributeId=' + attributeId);
+            let dropdownItems = $(elementId).closest("div.dummy_dynamic_Attribute").find(".dummy_attitemList");
+            dropdownItems.empty();
+            dropdownItems.append($('<option/>', { value: "", text: "Choose..." }));
+            $.ajax({
+                url: draftLcURL,
+                type: 'get',
+                success: function (result) {
+                    if (result.data != null) {
+                        $(result.data).each(function (index, item) {
+                            dropdownItems.append($('<option/>', { value: item.id, text: item.name }));
+                        });
+                    }
+                },
+                error: function (er) {
+                    $.notify("Something is Wrong!", "error");
+                }
+            });
+        }
+
+        function DupplicateDynamicElement(selector) {
+            let lastElement = $(selector + ":last");
+            let attributeSelectedVal = $.trim(lastElement.find("select.dummy_PorductAttributeList").val());
+
+            if (attributeSelectedVal != "") {
+                let newElement = lastElement.clone();
+                newElement.find("div.attribute-remover").html("<span onclick='RemoveThisItem(this);'>X</span>");
+                lastElement.after(newElement);
+
+                $(".dummy_PorductAttributeList").change(function () {
+                    let attributeId = $.trim($(this).val());
+                    LoadAttributeItemsDropdown(attributeId, this);
+                });
+
+                $($.trim(".dummy_dynamic_Attribute")).each(function (iteration, value) {
+                    let currentRow = $(this);
+                    $.each(currentRow.find('select,input[type=text],input[type=number],input[type=hidden]'), function (i, val) {
+
+                        let oldName = $.trim($(this).attr('name'));
+                        let oldPrefix = yourString = oldName.replace(/[^\d.]/g, '');
+
+                        let newName = oldName.replace('[' + (parseInt(oldPrefix)) + ']', '[' + (parseInt(iteration)) + ']');
+                        $(this).attr('name', newName);
+                        let oldID = $.trim($(this).attr('id'));
+                        if (typeof oldID !== "undefined" && oldID != "") {
+                            let newDynamicId = oldID.replace((parseInt(oldPrefix)), (parseInt(iteration)));
+                            $(this).attr('id', newDynamicId);
+                        }
+                    });
+                });
+
+            } else {
+                alert("Please select a attribute")
+            }
+
+        }
+
+    </script>
+
+}

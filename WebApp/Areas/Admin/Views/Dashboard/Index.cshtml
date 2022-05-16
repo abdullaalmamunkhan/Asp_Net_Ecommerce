@@ -1,0 +1,159 @@
+﻿@{ ViewData["Title"] = "Index"; }
+@section Styles{
+    <link href="~/admin/css/pages/float-chart.css" rel="stylesheet" />
+    <link href="~/admin/css/pages/easy-pie-chart.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex pa-10 no-block row">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col p-0">
+                        <h4 class="text-muted mb-10 font-14">Order Placed</h4>
+                        <h2 class="counter"><span class="counter-count font-30 text-themecolor">1000</span></h2>
+                        <h6 class="font-12">Today's Order</h6>
+                    </div>
+
+                    <div class="col-lg-5 col-md-5 col-sm-5 col p-0">
+                        <div class="text-center">
+                            <div class="chart easy-pie-chart-4 m-0" data-percent="75">
+                                <span><img src="~/admin/images/product/pro-1.jpg" alt="user" class="img-circle" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex pa-10 no-block row">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col p-0">
+                        <h4 class="text-muted mb-10 font-14">Pending Orders</h4>
+                        <h2 class="counter"><span class="counter-count font-30 text-themecolor">1344</span></h2>
+                        <h6 class="font-12">In Process</h6>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col p-0">
+                        <div class="text-center">
+                            <div class="chart easy-pie-chart-4 m-0" data-percent="55">
+                                <span><img src="~/admin/images/product/pro-2.jpg" alt="user" class="img-circle" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex pa-10 no-block row">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col p-0">
+                        <h4 class="text-muted mb-10 font-14">Shipped Orders</h4>
+                        <h2 class="counter"><span class="counter-count font-30 text-themecolor">324</span></h2>
+                        <h6 class="font-12">Shipped Today</h6>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col p-0">
+                        <div class="text-center">
+                            <div class="chart easy-pie-chart-4 m-0" data-percent="85">
+                                <span><img src="~/admin/images/product/pro-3.jpg" alt="user" class="img-circle" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex pa-10 no-block row">
+                    <div class="col-lg-7 col-md-7 col-sm-7 col p-0">
+                        <h4 class="text-muted mb-10 font-14">Delivered</h4>
+                        <h2 class="counter"><span class="counter-count font-30 text-themecolor">2354</span></h2>
+                        <h6 class="font-12">Delivered Today</h6>
+                    </div>
+                    <div class="col-lg-5 col-md-5 col-sm-5 col p-0">
+                        <div class="text-center">
+                            <div class="chart easy-pie-chart-4 m-0" data-percent="45">
+                                <span><img src="~/admin/images/product/pro-4.jpg" alt="user" class="img-circle" /></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body">
+
+                <h5 class="card-title m-b-0 align-self-center"> Sales Chart </h5>
+
+                <div id="morris-bar-chart"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="panel-wrapper">
+                    <div class="d-flex m-b-10 no-block">
+                        <h5 class="card-title m-b-0 align-self-center">Top product sales</h5>
+                        <div class="ml-auto text-light-blue"> <a href="#" class="pull-left text-light-blue inline-block refresh mr-15"> <i class="fas fa-sync"></i> Update </a> </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table color-table">
+                            <tbody>
+                                <tr>
+                                    <td><img src="~/admin/images/product/pro1.jpg" alt="" title=""></td>
+                                    <td>
+                                        <span class="font-semibold font-16">Notebook Asus Aspire</span> <br>
+                                        $375
+                                    </td>
+                                    <td>
+                                        <span class="font-semibold font-20 text-blue-light">$9375</span> <br>
+                                        25 sales
+                                    </td>
+                                    <td><div id="sparkline16"></div></td>
+
+                                </tr>
+                                <tr>
+                                    <td><img src="~/admin/images/product/pro2.jpg" alt="" title=""></td>
+                                    <td>
+                                        <span class="font-semibold font-16">Notebook Asus Aspire</span> <br>
+                                        $375
+                                    </td>
+                                    <td>
+                                        <span class="font-semibold font-20 text-blue-light">$9375</span> <br>
+                                        25 sales
+                                    </td>
+                                    <td><div id="sparkline17"></div></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="~/admin/images/product/pro3.jpg" alt="" title=""></td>
+                                    <td>
+                                        <span class="font-semibold font-16">Notebook Asus Aspire</span> <br>
+                                        $375
+                                    </td>
+                                    <td>
+                                        <span class="font-semibold font-20 text-blue-light">$9375</span><br>
+                                        25 sales
+                                    </td>
+                                    <td><div id="sparkline18"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

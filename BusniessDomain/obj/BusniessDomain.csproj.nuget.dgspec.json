@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "restore": {
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\BusniessDomain\\BusniessDomain.csproj": {}
+  },
+  "projects": {
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\BusniessDomain\\BusniessDomain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\BusniessDomain\\BusniessDomain.csproj",
+        "projectName": "BusniessDomain",
+        "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\BusniessDomain\\BusniessDomain.csproj",
+        "packagesPath": "C:\\Users\\My\\.nuget\\packages\\",
+        "outputPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\BusniessDomain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\My\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\DbAccessLayer.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\DbAccessLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\CommonProperties.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\CommonProperties.csproj",
+        "projectName": "CommonProperties",
+        "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\CommonProperties.csproj",
+        "packagesPath": "C:\\Users\\My\\.nuget\\packages\\",
+        "outputPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\My\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\DbAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\DbAccessLayer.csproj",
+        "projectName": "DbAccessLayer",
+        "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\DbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\My\\.nuget\\packages\\",
+        "outputPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbAccessLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\My\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\CommonProperties.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\CommonProperties\\CommonProperties.csproj"
+              },
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj"
+              },
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj",
+        "projectName": "DbModelsCore",
+        "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj",
+        "packagesPath": "C:\\Users\\My\\.nuget\\packages\\",
+        "outputPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\My\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj",
+        "projectName": "ViewModelsCore",
+        "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\ViewModelsCore.csproj",
+        "packagesPath": "C:\\Users\\My\\.nuget\\packages\\",
+        "outputPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\ViewModelsCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\My\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj": {
+                "projectPath": "F:\\My_Work\\SocialWebApiSolution\\asp.net-core-ecommerce\\SocialWebApiSolutions\\DbModelsCore\\DbModelsCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

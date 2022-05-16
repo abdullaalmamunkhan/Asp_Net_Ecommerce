@@ -1,0 +1,104 @@
+﻿@model DbModelsCore.Models.Ecommerce.Catalog.DBProductTag
+@{
+    ViewData["Title"] = "Product Tag";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Product Tag</h3>
+    </div>
+    <div class="col-6 text-right font-12"><a href="index.html">Admin</a> &gt;  Product Tag</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-20 form-card-title">@(Model.ID > 0 ? "Edit Product Tag " + Model.Name: "Add Product Tag")</h4>
+                <form asp-action="@(Model.ID > 0 ? "Edit": "Create")" asp-area="admin" asp-controller="tags" class="form font-14" autocomplete="off" enctype="multipart/form-data" data-parsley-validate>
+                    <input type="hidden" asp-for="ID">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group m-t-40 row">
+                        <label class="col-12 col-form-label">Name</label>
+                        <div class="col-12">
+                            <input class="form-control" asp-for="Name" type="text" placeholder="Name" required data-parsley-maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-10 pull-left tx-16 w-100">Product Tag <a asp-action="" asp-controller="tags" asp-area="admin" class="btn btn-primary float-right btn-sm">Add New</a></h4>
+                <div class="table-responsive mt-40">
+                    <table id="tblTagsTable" class="display nowrap table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section DataTable{
+
+    <script>
+        $(document).ready(function () {
+            var column = [
+                { "data": "id" },
+                { "data": "name" },
+                { "data": "createdDate" },
+                { "data": "id" },
+            ];
+
+            $('#tblTagsTable').DataTable({
+                "ajax": basedURL + "/admin/tags/all-product-tags",
+                columnDefs: [
+                    {
+                        'targets': 3,
+                        'render': function (data, type, row, meta) {
+
+                            if (type === 'display') {
+                                data = "<a href='" + basedURL + "/admin/tags?id=" + data + "' class='btn btn-success grid-btn'><i class='fa fa-pencil'></i></a>";
+                            }
+                            return data;
+                        }
+                    }
+                ],
+                "rowCallback": function (nRow, aData, iDisplayIndex) {
+                    var oSettings = this.fnSettings();
+                    $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+                    return nRow;
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                aoColumns: column,
+                rowId: 'id',
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                deferRender: true
+            });
+        })
+    </script>
+
+}

@@ -1,0 +1,974 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tag-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--website title-->
+    <title>@ViewData["Title"] - Online Shopping in Bangladesh: Order Now from CoscoBazar.com.bd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <!--====favicon icon====-->
+    <link rel=icon href="~/user/images/favicon.png" type="image/png" sizes=16x16>
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="~/user/css/bootstrap.min.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="~/user/css/all.min.css">
+
+    <!-- style css -->
+    <link rel="stylesheet" href="~/user/css/style.css">
+
+    <!-- color css -->
+    <link rel="stylesheet" href="~/user/css/color.css">
+
+    <!-- responsive css -->
+    <link rel="stylesheet" href="~/user/css/responsive.css">
+
+    <link href="~/user/css/app.custom.css" rel="stylesheet" />
+
+    <script src="~/user/js/jquery-1.12.4.min.js "></script>
+    <script src="~/user/js/bootstrap.bundle.min.js "></script>
+    <script src="~/admin/parsleyjs/parsley.min.js"></script>
+    <script>
+        isHomePage = false;
+        var pathURL = window.location.pathname; // Returns path only (/path/example.html)
+        var pageURL = window.location.href;     // Returns full URL (https://example.com/path/example.html)
+        var basedURL = window.location.origin;   // Returns base URL (https://example.com)
+        $('.top-header_links').fadeOut();
+        $('#hp-category-nav').css('visibility', 'visible').fadeIn();
+    </script>
+    @RenderSection("ScriptBeforeLoad", required: false)
+</head>
+
+<body>
+
+
+
+
+    <!-- header -->
+    <header class="header-content position-relative">
+        <!-- google adsense -->
+        <div class="glg-adsense">
+            <div class="container">
+                <div class="top-header_adsense">
+                    <a href="~/">
+                        <img src="~/user/images/top-ads.png" class="w-100 h-100" alt="">
+                    </a>
+                    <div class="adsense-close_icon">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-fixed">
+            <!-- top header links -->
+            <div class="top-header_links" id="topActionLinks">
+                <div class="container">
+                    <div class="header-link-items">
+                        <ul>
+                            <li class="active-item">
+                                <a href="#">SAVE MORE ON APP</a>
+                            </li>
+                            <li>
+                                <a href="#">SELL ON CoscoBazar</a>
+                            </li>
+                            <li>
+                                <a href="#">CUSTOMER CARE</a>
+                            </li>
+                            <li>
+                                <a href="#">TRACK MY ORDER</a>
+                            </li>
+                            <li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a href="~/admin/dashboard">Dashboard</a>
+                                }
+                                else
+                                {
+                                    <a asp-action="Login" asp-area="" asp-controller="Account">SIGNUP / LOGIN</a>
+                                }
+
+                            </li>
+                            <li>
+                                <a href="#">CoscoBazar AFFILIATE PROGRAM</a>
+                            </li>
+                            <li>
+                                <a href="#">ভাষা</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- header logo bar-->
+            <div class="header-logo-bar">
+                <div class="container">
+                    <div class="header-logo-content">
+                        <a href="~/">
+                            <img src="~/user/images/logo.png" alt="">
+                        </a>
+                    </div>
+                    <!-- header search box -->
+                    <div class="header-search-box">
+                        <input type="search" class="clsSearchData" placeholder="Search in CoscoBazar">
+                        <div class="search-box_btn">
+                            <button></button>
+                        </div>
+                    </div>
+                    <!-- header cart-->
+                    <div class="header-cart">
+                        <a href="#">
+                            <div class="cart-icon">
+                                <a href="#">
+                                    <svg width="25px" height="22px" viewBox="0 0 25 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+                                        <title>cart</title>
+                                        <desc>Created with Sketch.</desc>
+                                        <defs>
+                                            <polyline id="path-1" points="0 0.00306976744 24.7219388 0.00306976744 24.7219388 22 0 22"></polyline>
+                                            <polyline id="path-3" points="0 0.00306976744 24.7219388 0.00306976744 24.7219388 22 0 22"></polyline>
+                                        </defs>
+                                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="cart">
+                                                <g id="icon-cart">
+                                                    <path d="M0,0.00312093023 L0,2.04963256 L3.26734694,2.04963256 L7.77397959,15.2665163 L23.1602041,15.2665163 L24.7214286,4.61749302 L5.75561224,3.02070233 L4.72602041,0.00312093023 L0,0.00312093023 Z M6.47653061,5.13526047 L22.3872449,6.47470233 L21.397449,13.2200047 L9.23265306,13.2200047 L6.47653061,5.13526047 Z" id="Fill-1" fill="#212121" fill-rule="nonzero" data-spm-anchor-id="a2a0e.searchlistcategory.dcart.i0.4e4c5d01IB9nVc"></path>
+                                                    <g id="Group-8">
+                                                        <g id="Group-4">
+                                                            <g id="Fill-2-Clipped">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#path-1"></use>
+                                                                </mask>
+                                                                <g id="path-1"></g>
+                                                                <path d="M10.9269388,19.8042465 C10.9269388,21.0168047 9.94683673,22.0001535 8.73714286,22.0001535 C7.52795918,22.0001535 6.54785714,21.0168047 6.54785714,19.8042465 C6.54785714,18.5916884 7.52795918,17.6083395 8.73714286,17.6083395 C9.94683673,17.6083395 10.9269388,18.5916884 10.9269388,19.8042465" id="Fill-2" fill="#212121" fill-rule="nonzero" mask="url(#mask-2)"></path>
+                                                            </g>
+                                                        </g>
+                                                        <g id="Group-7">
+                                                            <g id="Fill-5-Clipped">
+                                                                <mask id="mask-4" fill="white">
+                                                                    <use xlink:href="#path-3"></use>
+                                                                </mask>
+                                                                <g id="path-3"></g>
+                                                                <path d="M24.3623469,19.8042465 C24.3623469,21.0168047 23.3822449,22.0001535 22.172551,22.0001535 C20.9633673,22.0001535 19.9832653,21.0168047 19.9832653,19.8042465 C19.9832653,18.5916884 20.9633673,17.6083395 22.172551,17.6083395 C23.3822449,17.6083395 24.3623469,18.5916884 24.3623469,19.8042465" id="Fill-5" fill="#212121" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- header sub adsense -->
+                    @*<div class="header-sub-adsense">
+                            <a href="#">
+                                <img src="~/user/images/sub-adsense.png" class="w-100 h-100" alt="">
+                            </a>
+                        </div>*@
+                </div>
+
+            </div>
+            <!-- scroll to show -->
+            <div class="fs-category" id="hp-category-nav">
+                <div class="container">
+                    <div class="hp-category-nav-content">
+                        <div class="site-menu-nav-category">
+                            <a class="site-menu-nav-category-label">
+                                <span class="site-menu-nav-category-text">Categories</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="header-nav">
+                                <nav>
+                                    @await Component.InvokeAsync("CategoryMenu", false)
+                                    @*<ul>
+                                            <li>
+                                                <a href="">Electronic Devices</a>
+                                                <i class="fas fa-chevron-right"></i>
+                                                <ul>
+                                                    <li>
+                                                        <a href="">Links </a>
+                                                        <i class="fas fa-chevron-right"></i>
+
+                                                        <ul>
+                                                            <li><a href="">JQuery</a></li>
+                                                            <li><a href="">HTML/CSS</a></li>
+                                                            <li><a href="">Outher</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="">Resource</a></li>
+                                                    <li>
+                                                        <a href="">Tutorials</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Electronic Accessories</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">TV & Home Appliances</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Health & Beauty</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Babies & Toys</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Groceries & Pets</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Home & Lifestyle</a>
+                                                <i class="fas fa-chevron-right"></i>
+                                                <ul>
+                                                    <li>
+                                                        <a href="">Links </a>
+                                                        <i class="fas fa-chevron-right"></i>
+
+                                                        <ul>
+                                                            <li><a href="">JQuery</a></li>
+                                                            <li><a href="">HTML/CSS</a></li>
+                                                            <li><a href="">Outher</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="">Resource</a></li>
+                                                    <li>
+                                                        <a href="">Tutorials</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">Women's Fashion</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Men's Fashion</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Watches & Accessories</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Sports & Outdoor</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Automotive & Motorbike</a>
+                                            </li>
+                                        </ul>*@
+                                </nav>
+                            </div>
+                        </div>
+                        <nav class="menu-labels">
+                            <a class="menu-labels-item" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="menu-labels-item-text">ফ্রি শিপিং</span>
+                            </a>
+                            <a class="menu-labels-item" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="menu-labels-item-text">cMart</span>
+                            </a>
+                            @*<a class="menu-labels-item" href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    <span class="menu-labels-item-text">দারাজমল</span>
+                                </a>*@
+                            <a class="menu-labels-item" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="menu-labels-item-text">ডিজিটাল সেবা</span>
+                            </a>
+                            <a class="menu-labels-item" href="#">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="menu-labels-item-text">বিদেশী পণ্য</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- login info wrap -->
+
+
+
+    @RenderBody()
+    <!-- footer wrap -->
+    <footer>
+        <!-- footer first -->
+        <div class="footer-first">
+            <div class="container">
+                <div class="footer-width-25">
+                    <h3 class="footer-title">
+                        Customer Care
+                    </h3>
+                    <div class="footer-list">
+                        <ul>
+                            <li>
+                                <a href="#">Help Center</a>
+                            </li>
+                            <li>
+                                <a href="#">How to Buy</a>
+                            </li>
+                            <li>
+                                <a href="#">Returns & Refunds</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <h3 class="footer-title">
+                        Earn With CoscoBazar
+                    </h3>
+                    <div class="footer-list">
+                        <ul>
+                            <li>
+                                <a href="#">CoscoBazar University</a>
+                            </li>
+                            <li>
+                                <a href="#">Sell on CoscoBazar</a>
+                            </li>
+                            <li>
+                                <a href="#">Code of Conduct</a>
+                            </li>
+                            <li>
+                                <a href="#">Join the CoscoBazar Affiliate Program</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-width-25">
+                    <div class="footer-list"></div>
+                    <h3 class="footer-title">
+                        CoscoBazar
+                    </h3>
+                    <div class="footer-list">
+                        <ul>
+                            <li>
+                                <a href="#">About CoscoBazar</a>
+                            </li>
+                            <li>
+                                <a href="#">Digital Payments</a>
+                            </li>
+                            <li>
+                                <a href="#">Careers</a>
+                            </li>
+                            <li>
+                                <a href="#">CoscoBazar Blog</a>
+                            </li>
+                            <li>
+                                <a href="#">Amar CoscoBazar</a>
+                            </li>
+                            <li>
+                                <a href="#">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#">CoscoBazar App</a>
+                            </li>
+                            <li>
+                                <a href="#">Hungrynaki Food Delivery</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-width-50">
+                    <div class="footer-width-50 store-icon d-flex">
+                        <div class="qr-code">
+                            <img src="~/user/images/qr-code-img.png" alt="">
+                        </div>
+                        <div class="shopping-status">
+                            <div class="logo-status">
+                                <img src="~/user/images/favicon.png" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="title">Happy Shopping</div>
+                            <div class="text">Download App</div>
+                        </div>
+                    </div>
+                    <div class="app-download-method clear-both">
+                        <a class="footer-sprit pull-left icon-appStore-footer icon-yatra-img-appstore" href="#"></a>
+                        <a class="footer-sprit pull-left icon-android-footer icon-yatra-img-google-play" href="#"></a>
+                        <a class="pull-left icon-android-footer icon-yatra-img-google-play icon-huawei-store" href="#"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer second -->
+        @*<div class="footer-second">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-width-25">
+                            <h3 class="footer-title">Payment Methods</h3>
+                            <span class="payment-icon footer-sprit icon-yatra-payment-1"></span>
+                            <span class="payment-icon footer-sprit icon-yatra-payment-7"></span>
+                            <span class="payment-icon footer-sprit icon-yatra-payment-8"></span>
+                            <span class="payment-icon footer-sprit icon-yatra-payment-3"></span>
+                            <span class="payment-icon footer-sprit icon-yatra-payment-2"></span>
+                        </div>
+                        <div class="footer-width-25">
+                            <h3 class="footer-title">CoscoBazar International</h3>
+                            <a class="footer-sprit payment-iconfooter-country icon-yatra-v-pk" href="#"></a>
+                            <a class="footer-sprit payment-iconfooter-country icon-yatra-v-bd" href="#"></a>
+                            <a class=" footer-sprit payment-iconfooter-country icon-yatra-v-lk" href="#"></a>
+                            <a class="footer-sprit payment-iconfooter-country icon-yatra-v-mm" href="#"></a>
+                            <a class=" footer-sprit payment-iconfooter-country icon-yatra-v-np" href="#"></a>
+                        </div>
+                        <div class="footer-width-25">
+                            <h3 class="footer-title">Follow Us</h3>
+                            <a class="follow-us-icon footer-sprit icon-yatra-s-fb" href="#"></a>
+                            <a class="follow-us-icon footer-sprit icon-yatra-s-dblog" href="#"></a>
+                            <a class="follow-us-icon footer-sprit icon-yatra-s-youtube" href="#"></a>
+                            <a class="follow-us-icon footer-sprit icon-yatra-s-twitter" href="#"></a>
+                            <a class="follow-us-icon footer-sprit icon-yatra-s-insta" href="#"></a>
+                        </div>
+                        <div class="footer-width-25">
+                            <h3 class="footer-title">Verified by</h3>
+                            <i class="footer-sprit icon-android-footer icon-yatra-img-pci-compliant"></i>
+                        </div>
+                        <h3 class="copyright clear-both">© copyright 2021</h3>
+                    </div>
+                </div>
+            </div>*@
+
+        <!-- footer third -->
+        @*<div class="footer-third">
+                <div class="container">
+                    <div class="footer-width-50 about-details">
+                        <div class="footer-about">
+                            <h1 class="footer-title">Experience Personalized Online Shopping in Bangladesh with CoscoBazar.com.bd</h1>
+                        </div>
+                        <div class="footer-about">
+                            <p class="particle">
+                                Online Shopping BD has never been easier. CoscoBazar.com.bd is best online shopping store in Bangladesh that features 10+ million products at affordable prices. As bangaldesh's online shopping landscape is expanding every year, online shopping in dhaka, chittagong,
+                                khulna, sylhet and other big cities are also gaining momentum. CoscoBazar is among best websites for online shopping in bangladesh that promises fast, reliable and convenient delivery of products to your doorstep. CoscoBazar being the
+                                trusted online shop in Bangladesh aims to provide a trouble-free shopping experience for the people of Bangladesh but is also providing ample opportunity for international online shopping from Bangladesh. CoscoBazar aims to make
+                                online shopping accessible to all parts of the country.
+                            </p>
+                        </div>
+                        <div class="footer-about">
+                            <p class="particle">Everyone is encouraged to shop with confidence at CoscoBazar.com.bd as our strict buyer’s protection policies ensure no risks while shopping online.</p>
+                        </div>
+                        <div class="footer-about">
+                            <p class="particle">
+                                Among tons of online stores in Bangladesh, CoscoBazar aims to strictly adhere to international quality standards ensuring trust and reliability in customer service and originality in product delivery. Realizing the surge in ecommerce platform in bangladesh,
+                                CoscoBazar aims to redefine online shopping experience with home delivery, cash on delivery and installment facility for shoppers across country. Our assortment includes 100% original products from leading electronics, fashion,
+                                beauty, and lifestyle brands. Especially for shoppers who do not have debit cards or credit cards, CoscoBazar provides a facility of online shopping with cash on delivery to your home. To enhance your online shopping experience,
+                                we encourage you to download <a href="#">CoscoBazar app</a> for Android &amp; IOS and have a taste of personalized shopping experience based on your interest and shopping needs.
+                            </p>
+                        </div>
+                        <div class="footer-about">
+                            <p class="particle">CoscoBazar is a global online marketplace with ecommerce stores in <a href="#">Pakistan</a>, Bangladesh, <a href="#">Nepal</a>, <a href="#">Sri Lanka</a> and <a href="#">Myanmar</a>.</p>
+                        </div>
+                        <div class="footer-new">
+                            <h4 class="footer-new-title">
+                                <span>TRENDING</span>
+                            </h4>
+                            <div class="footer-category-division">
+                                <a class="footer-category-tag" href="#">Mobile Week Sale</a> ,
+                                <a class="footer-category-tag" href="#">Deals Under 999</a> ,
+                                <a class="footer-category-tag" href="#">Top Up &amp; eStore</a> ,
+                                <a class="footer-category-tag" href="#">10.10 Sale</a> ,
+                                <a class="footer-category-tag" href="#">11.11 Sale</a> ,
+                                <a class="footer-category-tag" href="#">Fatafati Friday</a> ,
+                                <a class="footer-category-tag" href="#">12.12 Sale</a> ,
+                                <a class="footer-category-tag" href="#">CoscoBazar EMI Partners</a> ,
+                                <a class="footer-category-tag" href="#">CoscoBazar Payment Partners</a> ,
+                                <a class="footer-category-tag" href="#">CoscoBazar Mall</a> ,
+                                <a class="footer-category-tag" href="#">dMart</a> ,
+                                <a class="footer-category-tag" href="#">CoscoBazar Flash Sale</a> ,
+                                <a class="footer-category-tag" href="#">CoscoBazar Voucher</a> ,
+                                <a class="footer-category-tag" href="#">Gorur Haat</a> ,
+                                <a class="footer-category-tag" href="#">Anniversary Sale</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-width-25">
+                        <div class="footer-top-category footer-category-left">
+                            <h3 class="footer-title">Top Categories &amp; Brands</h3>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Mobile Phones</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Huawei Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Symphony Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Nokia Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Walton Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    OnePlus Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    realme Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Infinix Mobile
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vivo Mobile
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Mobile Accessories</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Earphone
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Phone Cover
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Mobile Charger
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Mobile Battery
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Power Bank
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Memory Card
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Smart Watch
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Laptops</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    HP Laptops
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Dell Laptops
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Asus Laptops
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Lenovo Laptops
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Graphics Card
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Led TV</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Sony Led TV
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Walton Led TV
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Led TV
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    LG Led TV
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Singer Led TV
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Home Appliances</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Air Conditioners
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Refrigerators
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Deep Freezers
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Generators
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    UPS Battery
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Washing Machines
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Heaters
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Lenovo HE05 Earphone
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    DSLR Cameras
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Air Cooler
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <a href="#">Fans</a>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Click Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Mira Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Baseus Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    BRB Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Defender Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    National fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Sony Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Sunca Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Orient Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Superstar Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Havells Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Conion Fan
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Kashmir Fan
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <span>Trending Summer Products</span>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Walton Refrigerator
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Gree AC
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Walton AC
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Singer Refrigerator
+                                </a>
+                            </div>
+                            <textarea style="display: none" class="J_MoreCategoryLeft">[]</textarea>
+                        </div>
+                    </div>
+                    <div class="footer-width-25">
+                        <div class="footer-top-category footer-category-right">
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <span>Best-Selling Products</span>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Nokia 3310
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Huawei Y9
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    M3 Smart Band
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Mi Band 2
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Redmi Note 9
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Redmi Note 9 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo F17
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    realme C17
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    realme 7i
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Realme 7 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Realme 8 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Realme Narzo 30a
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Redmi 9
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Galaxy M31
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vivo Y11
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo F17 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Poco M2 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo A12
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Honda Bike
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Suzuki Gixxer Bike
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vivo V20
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Infinix Hot 9
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Redmi Note 8 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vivo Y30
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    iPhone 12 Pro Max
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Redmi Note 10
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vivo y20
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung M02s
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung M40
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung A72
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung A52
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo A53
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Realme C21
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Realme C25
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Infinix Hot 10
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo A15s
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Tecno Spark 6
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Tecno Spark 7 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Xiaomi Poco X3 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo F19 Pro
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Galaxy A32
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Motorola Moto G30
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Galaxy M12
+                                </a>,
+
+                                <a class="footer-category-tag" href="#">
+                                    Vivo Y12a
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Samsung Note 20 Ultra
+                                </a>,
+                                <a class="footer-category-tag" href="$">
+                                    Realme C20a
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Oppo Reno 5
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <span>Popular Stores By Category</span>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Online Stationery Shop
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Online Book Shop
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Online Makeup Store
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Baby Toys Shop
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Pet Supplies Store
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Online Grocery Shop
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <span>SHOP WORLDWIDE WITH LAZADA</span>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    Singapore
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Malaysia
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Philipines
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Indonesia
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Vietnam
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    Thailand
+                                </a>
+                            </div>
+                            <div class="footer-category-division">
+                                <h4 class="footer-title-small">
+                                    <span>Trending Local Search</span>
+                                </h4>
+                                <a class="footer-category-tag" href="#">
+                                    কানের দুলের ডিজাইন
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    বোরকা ডিজাইন
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    খাটের ডিজাইন
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    জুতা
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    মোবাইল ফোনের দাম
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    থ্রি পিস
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    চটি জুতা
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    জার্সি ডিজাইন
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    মোটর সাইকেল
+                                </a>,
+                                <a class="footer-category-tag" href="#">
+                                    অ্যানিভার্সারি সেল
+                                </a>
+                            </div>
+                            <textarea style="display: none" class="J_MoreCategoryRight">[]</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </footer>
+
+
+    <!-- bootstrap bundle js -->
+
+    <script src="~/user/js/custom.js "></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".search-box_btn").click(function () {
+                let itemIds = "";
+                $(".dummy_item_checker").each(function () {
+                    let chk = $(this).is(':checked');
+                    let itemId = $.trim($(this).val());
+                    if (chk == true) {
+                        if (itemIds == '') {
+                            itemIds = itemId;
+                        } else {
+                            itemIds = itemIds + ", " + itemId;
+                        }
+                    }
+                });
+
+                $(".product_loader").removeClass("d-none");
+
+                var minValue = $("#IdMinPrice").val();
+                var maxValue = $("#IdMaxPrice").val();
+                var searchString = $(".clsSearchData").val();
+                SearDataCall(itemIds, minValue, maxValue, searchString);
+            });
+
+        });
+
+
+
+
+    </script>
+
+
+    @RenderSection("ScriptAfterLoad", required: false)
+</body>
+
+</html>
+

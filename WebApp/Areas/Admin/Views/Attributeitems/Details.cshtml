@@ -1,0 +1,95 @@
+﻿@model DbModelsCore.Models.Ecommerce.Catalog.DBProductAttributeItems
+@{
+    ViewData["Title"] = "Attribute Item Details";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Attribute Item Details</h3>
+    </div>
+    <div class="col-6 text-right font-12">
+        <a href="~/admin/dashboard">Admin</a> &gt;
+        <a asp-action="" asp-controller="Attributeitems" asp-area="Admin">Attribute Items</a> &gt;
+        Attribute Item Details
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-20 form-card-title">Attribute Item Details</h4>
+                <input type="hidden" asp-for="ID">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group m-t-40 row">
+                            <label class="col-12 col-form-label">Product Attribute</label>
+                            <div class="col-12">
+                                <select class="form-control" id="ddlProductAttributes" asp-for="ProductAttributeId" asp-items="@(new SelectList(ViewBag.ListOfProductAttribute, "Id", "Name","Choose..."))" readonly>
+                                    <option selected="" value="">Choose...</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="form-group m-t-40 row">
+                            <label class="col-12 col-form-label">Name</label>
+                            <div class="col-12">
+                                <input class="form-control" asp-for="Name" type="text" placeholder="Name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-sm-12 mt-5 dummy_toggle_catlist d-none">
+                        <div class="form-group m-t-40 row">
+                            <h3 class="col-12 col-form-label">Categories</h3>
+                            <div class="col-12 dummy_category_list">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+            GetAttibuteSelectedCategories();
+            $('#ddlProductAttributes').change(function () {
+                GetAttibuteSelectedCategories();
+            });
+        });
+
+        function GetAttibuteSelectedCategories() {
+            let attributeId = $.trim($('#ddlProductAttributes').val());
+            $(".dummy_category_list").html("");
+            $(".dummy_toggle_catlist").addClass("d-none");
+
+            if (attributeId != "") {
+                $.ajax({
+                    type: "GET",
+                    url: basedURL + "/admin/productattributes/attribute-categories?attributeId=" + attributeId,
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        $(data.data).each(function (index, item) {
+                            let catString = "<span class ='text-label'>" + item.name + "</span>";
+                            $(".dummy_category_list").append(catString);
+                        });
+
+                        if (data.data.length > 0)
+                            $(".dummy_toggle_catlist").removeClass("d-none");
+                    },
+                    error: function (er) {
+                        $.notify("Something is Wrong!", "error");
+                    }
+                });
+            }
+        }
+
+    </script>
+}

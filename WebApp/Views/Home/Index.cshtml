@@ -1,0 +1,533 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="banner-overview">
+   
+    @await Component.InvokeAsync("MainSlider", false)
+
+    <!-- sub header nav -->
+    <div class="container">
+        <div class="header-nav">
+            <nav>
+                @await Component.InvokeAsync("CategoryMenu", false)
+                
+            </nav>
+        </div>
+    </div>
+</div>
+
+<!-- flash sell product -->
+<section class="fs-product-wrap section-grap">
+    <div class="container">
+        <div class="section-title">
+            <h3 class="product-title">ফ্ল্যাশসেল</h3>
+        </div>
+        <div class="fs-product-content similar-product">
+            <div class="fs-header">
+                <div class="fs-status-text pull-left">
+                    <div>On Sale Now</div>
+                </div>
+                <div class="fs-left-timer pull-left">
+                    <div class="fs-timer-text pull-left">Ending in</div>
+                    <div class="fs-timer-count pull-left" id="hours" style="background-color: #1E9A45; ">11</div>
+                    <div class="fs-timer-colon pull-left" style="color: #1E9A45"> : </div>
+                    <div class="fs-timer-count pull-left" id="minutes" style="background-color: #1E9A45;">46</div>
+                    <div class=" fs-timer-colon pull-left" style="color: #1E9A45 "> : </div>
+                    <div class="fs-timer-count pull-left " id="seconds " style="background-color: #1E9A45; ">48</div>
+                </div>
+                <div class="fs-product-more-btn pull-right">
+                    <a href="#">আরো কিনুন</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img2.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img3.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img4.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img5.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item ">
+                        <a href="#">
+                            <div class="product-item-img">
+                                <img src="~/user/images/fs-img6.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text">
+                                <div class="product-item-title">Jp Cotton Short Sleeve T-Shirt for Men</div>
+                                <div class="product-item-price">
+                                    <span class="currency">৳</span><span class="price">149</span>
+                                </div>
+                                <div class="product-item-origin-price">
+                                    <span class="product-origin-price">
+                                        <span class="currency">৳</span><span class="price">650</span>
+                                    </span>
+                                    <span class="product-discount">
+                                        -77%
+                                    </span>
+                                </div>
+                                <div class="product-item-sold">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- product official store -->
+<section class="pd-official-store section-grap">
+    <div class="container">
+        <div class="pd-header">
+            <div class="section-title pull-left">
+                <h3 class="product-title">কসকো বাজার</h3>
+            </div>
+            <div class="pd-store-btn pull-right">
+                <a href="#">
+                    <span class="pull-left">আরো কিনুন</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="pd-store-content clear-both similar-product">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img1.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img2.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img2.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img3.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img3.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img4.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img4.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img5.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img5.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="product-item">
+                        <a href="#">
+                            <div class="overlay"></div>
+                            <div class="product-item-img">
+                                <img src="~/user/images/store-img6.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-sub-img">
+                                <img src="~/user/images/store-img6.1.jpg" class="w-100 h-100" alt="">
+                            </div>
+                            <div class="product-item-text text-center">
+                                <div class="product-item-title"> WALL TOUCH</div>
+                                <div class="product-item-sub_title"> Where Yr Baby Come First </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- product collection -->
+<section class="product-collection section-grap">
+    <div class="container">
+        <div class="pd-header">
+            <div class="section-title pull-left">
+                <h3 class="product-title">সংগ্রহগুলি</h3>
+            </div>
+            <div class="pd-store-btn pull-right">
+                <a href="#">
+                    <span class="pull-left">আরো কিনুন</span>
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+        <div class="pd-collection-content similar-product clear-both">
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="product-item">
+                <a href="#">
+                    <div class="product-item-text text-center">
+                        <div class="product-item-title"> Cannot hear you la! ></div>
+                        <div class="product-item-sub_title"> 112,793 products</div>
+                    </div>
+                    <div class="product-item-img">
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img1.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img2.jpg" class="w-100 h-100" alt="">
+                        </div>
+                        <div class="product-item-sub_img">
+                            <img src="~/user/images/sub-img3.jpg" class="w-100 h-100" alt="">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- hp category product -->
+<section class="hp-category-product section-grap clear-both">
+    <div class="container">
+        <div class="pd-header">
+            <div class="section-title pull-left">
+                <h3 class="product-title">Categories</h3>
+            </div>
+        </div>
+        <div class="hp-category-pd-content similar-product clear-both">
+
+            @await Component.InvokeAsync("CategoryThumb", false)
+
+        </div>
+    </div>
+</section>
+
+<!-- hp jfy products -->
+
+<section class="hp-jfy-products section-grap clear-both">
+    <div class="container">
+        <div class="pd-header">
+            <div class="section-title">
+                <h3 class="product-title">শুধু আপনার জন্য</h3>
+            </div>
+        </div>
+        <div class="hp-jfy-pd-content similar-product clear-both">
+            <div class="row">
+                @await Component.InvokeAsync("HomePageProducts", false)
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section ScriptBeforeLoad{
+    <script>
+        isHomePage = true;
+    </script>
+}

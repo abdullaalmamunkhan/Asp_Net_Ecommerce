@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Attributes Items";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Attributes Items</h3>
+    </div>
+    <div class="col-6 text-right font-12"><a href="~/admin/dashboard">Admin</a> &gt;  Attributes Items</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-10 pull-left tx-16 w-100">Attributes Items <a asp-action="Create" asp-controller="Attributeitems" asp-area="admin" class="btn btn-primary float-right btn-sm">Add New</a></h4>
+                <div class="table-responsive mt-40">
+                    <table id="tblCategoryTable" class="display nowrap table table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Product Attribute</th>
+                                <th>Item Name</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section DataTable{
+
+    <script>
+        $(document).ready(function () {
+            var column = [
+                { "data": "id" },
+                { "data": "attributeName" },
+                { "data": "name" },
+                { "data": "createdDate" },
+                { "data": "id" },
+            ];
+
+            $('#tblCategoryTable').DataTable({
+                "ajax": basedURL + "/admin/attributeitems/all-attribute-items",
+                columnDefs: [
+                    {
+                        'targets': 4,
+                        'render': function (data, type, row, meta) {
+                            let dataString = "";
+                            if (type === 'display') {
+                                dataString = "<div class='btn-group'><a href='" + basedURL + "/admin/attributeitems/edit/" + data + "' class='btn btn-success grid-btn'><i class='fa fa-pencil'></i></a>";
+                                dataString = dataString + "<a href='" + basedURL + "/admin/attributeitems/details/" + data + "' class='btn btn-primary grid-btn'><i class='fa fa-eye'></i></a></div>";
+                            }
+                            return dataString;
+                        }
+                    }
+                ],
+                "rowCallback": function (nRow, aData, iDisplayIndex) {
+                    var oSettings = this.fnSettings();
+                    $("td:first", nRow).html(oSettings._iDisplayStart + iDisplayIndex + 1);
+                    return nRow;
+                },
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                aoColumns: column,
+                rowId: 'id',
+                "oLanguage": {
+                    "sSearch": ""
+                },
+                deferRender: true
+            });
+        })
+    </script>
+
+}

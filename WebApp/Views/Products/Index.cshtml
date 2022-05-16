@@ -1,0 +1,394 @@
+﻿@model IEnumerable<ViewModelsCore.VMEcom.VMList.VMProductFilterList>
+@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@{
+    ViewData["Title"] = (!string.IsNullOrEmpty(ViewBag.CategoryName) ? ViewBag.CategoryName : "");
+}
+
+<section class="main-content-wrap">
+    <div class="container">
+        <!-- breadcrumb -->
+        <div class="breadcrumb-list">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#">Home</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Mobiles & Tablets</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="#">Mobiles</a>
+                        <div class="breadcrumb_right_arrow"></div>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Realme Mobiles</span></li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- cp product content -->
+        <div class="cp-pd-content">
+            <!-- category side nav  -->
+            <div class="cp-pd-sideNav-info ">
+                <div class="cp-sideNav-info-box">
+                    <div class="cp-info-title">Price</div>
+                    <div class="cp-info-content">
+                        <div class="price-info-maxMin">
+                            <input type="number" id="IdMinPrice" min="0" class="pull-left" placeholder="Min" value="">
+                            <div class="pull-left divider-line">-</div>
+                            <input type="number" id="IdMaxPrice" min="0" placeholder="Max" value="" class="pull-left">
+                            <button type="button" class="btn pull-left clsPriceRange">
+                                <i class="fas fa-caret-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cp-sideNav-info-box">
+                    <div class="cp-info-title">Related Categories</div>
+                    <div class="cp-info-content">
+                        <div class="cp-info-rltd-tag">
+                            <a href="#">Mobiles</a>
+                        </div>
+                    </div>
+                </div>
+                @await Component.InvokeAsync("ProductSidebarAttribute", false)
+                <div class="cp-sideNav-info-box">
+                    <div class="cp-info-title">Rating</div>
+                    <div class="cp-info-content">
+                        <div class="product-ratings">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>Add Up</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>Add Up</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>Add Up</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <span>Add Up</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- cp category view -->
+            <div class="cp-category-view">
+                <div class="cp-ctg-info">
+                    <h1 class="title">@(!string.IsNullOrEmpty(ViewBag.CategoryName) ? ViewBag.CategoryName : "")</h1>
+                </div>
+                <div class="category-pd-view-info">
+                    <div class="sub-para pull-left"><span class="dummy_filtercount">@((ViewBag.TotalProductCount != null)? ViewBag.TotalProductCount : 0)</span> items found in @(!string.IsNullOrEmpty(ViewBag.CategoryName) ? ViewBag.CategoryName : "")</div>
+                    <div class="ctg-pd-view-list pull-right">
+                        <div class="sort-by pull-left">
+                            <div class="select-new">
+                                <div class="select-inner d-flex">
+                                    <span>Sort by: </span>
+                                    <select class="field ">
+                                        <option>Featured</option>
+                                        <option selected="selected">Best Selling</option>
+                                        <option>Name, A-Z</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="view-list pull-left">
+                            <div class="view-title pull-left">View :</div>
+                            <div class="grid-view-icon pull-left">
+                                <i class="fas fa-th-large"></i>
+                            </div>
+                            <div class="list-view-icon pull-left">
+                                <i class="fas fa-list"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cp-ctg-products similar-product">
+                    <div class="pd-list-view">
+                        <div class="row dummy_product_grid">
+                            @if (Model != null && Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <div class="col-md-3">
+                                        <div class="product-item ">
+                                            <a href="@Url.Action("details","products", new { @id=item.ProductID, @name=item.ProductNAME})">
+                                                <div class="product-item-img">
+                                                    <img src="@item.FeatureImage" class="w-100 h-100" alt="@item.ProductNAME">
+                                                </div>
+                                                <div class="product-item-text">
+                                                    <div class="product-item-title">@item.ProductNAME</div>
+                                                    <div class="product-item-price">
+                                                        <span class="currency">৳</span>&nbsp;<span class="price">@item.NewPrice</span>
+                                                    </div>
+                                                    <div class="product-item-origin-price">
+                                                        <span class="product-origin-price">
+                                                            <span class="currency">৳</span>&nbsp;<span class="price">@item.OldPrice</span>
+                                                        </span>
+                                                        <span class="product-discount">
+                                                            -@item.DiscountInPercent%
+                                                        </span>
+                                                    </div>
+                                                    <div class="product-item-ratings mt-2">
+                                                        <div class="rating-star pull-left">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                        <div class="rating-count pull-left">(365)</div>
+                                                        <span class="area">Bangladesh</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+
+                        @if (ViewBag.TotalProductCount != null && ViewBag.TotalProductCount > 0)
+                        {
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("", new { page, @cat = ViewBag.CategoryId, @name = ViewBag.CategoryName, }))
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div class="pd-grid-view">
+                        <div class="row dummy_product_list">
+                            @if (Model != null && Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    <div class="col-md-12">
+                                        <div class="product-item">
+                                            <a href="@Url.Action("details","products", new { @id=item.ProductID, @name=item.ProductNAME})">
+                                                <div class="product-item-img">
+                                                    <img src="@item.FeatureImage" class="w-100 h-100" alt="@item.ProductNAME">
+                                                </div>
+                                            </a>
+                                            <div class="product-item-text">
+                                                <div class="product-item-title">
+                                                    <a href="@Url.Action("details","products", new { @id=item.ProductID, @name=item.ProductNAME})">@item.ProductNAME</a>
+                                                </div>
+
+                                                <div class="product-item-ratings mt-2">
+                                                    <div class="rating-star pull-left">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <div class="rating-count">(365)</div>
+                                                </div>
+                                                <div>
+                                                    <span class="area d-block">Bangladesh</span>
+                                                </div>
+                                                <div class="cp-pd-des-list">
+                                                    <ul>
+                                                        <li>NO RETURN applicable if the seal is broken</li>
+                                                        <li>5000mAh Massive Battery</li>
+                                                        <li>Processor: MediaTek Helio G35 Octa-core 12nm Processor</li>
+                                                        <li>CPU: Octa-core CPU, 12nm, up to 2.3GHz</li>
+                                                        <li>GPU: IMG GE8320</li>
+                                                        <li>Storage &amp; RAM: RAM: 2GB LPDDR4X ROM: 32GB</li>
+                                                        <li>16.5cm (6.5") Large Display</li>
+                                                        <li>3-Card Slot</li>
+                                                        <li>2 SIM + 1 MicroSD</li>
+                                                        <li>2+32GB Large Storage</li>
+                                                        <li>Geometric Art Design</li>
+                                                        <li>Main Camera: 8MP AI Camera</li>
+                                                        <li>Front Camera: 5MP AI selfie camera</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="product-price-list">
+                                                <div class="product-item-price">
+                                                    <span class="currency">৳</span><span class="price">@item.NewPrice</span>
+                                                </div>
+                                                <div class="installment">Installment available</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+                            }
+                        </div>
+                        @if (ViewBag.TotalProductCount != null && ViewBag.TotalProductCount > 0)
+                        {
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("", new { page, @cat = ViewBag.CategoryId, @name = ViewBag.CategoryName, }))
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-loader product_loader d-none">
+        <img src="~/img/Comp-2.gif" class="ajax-page-loader" />
+    </div>
+
+</section>
+
+
+
+@section ScriptAfterLoad{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".dummy_item_checker").change(function () {
+                let itemIds = "";
+                $(".dummy_item_checker").each(function () {
+                    let chk = $(this).is(':checked');
+                    let itemId = $.trim($(this).val());
+                    if (chk == true) {
+                        if (itemIds == '') {
+                            itemIds = itemId;
+                        } else {
+                            itemIds = itemIds + ", " + itemId;
+                        }
+                    }
+                });
+
+                $(".product_loader").removeClass("d-none");
+
+                var minValue = $("#IdMinPrice").val();
+                var maxValue = $("#IdMaxPrice").val();
+
+                SearDataCall(itemIds, minValue, maxValue,"");
+
+            });
+
+            $(".clsPriceRange").click(function () {
+                let itemIds = "";
+                $(".dummy_item_checker").each(function () {
+                    let chk = $(this).is(':checked');
+                    let itemId = $.trim($(this).val());
+                    if (chk == true) {
+                        if (itemIds == '') {
+                            itemIds = itemId;
+                        } else {
+                            itemIds = itemIds + ", " + itemId;
+                        }
+                    }
+                });
+
+                $(".product_loader").removeClass("d-none");
+
+                var minValue = $("#IdMinPrice").val();
+                var maxValue = $("#IdMaxPrice").val();
+
+                SearDataCall(itemIds, minValue, maxValue,"");
+
+            });
+
+            //$(".search-box_btn").click(function () {
+            //    alert("OK");
+            //    let itemIds = "";
+            //    $(".dummy_item_checker").each(function () {
+            //        let chk = $(this).is(':checked');
+            //        let itemId = $.trim($(this).val());
+            //        if (chk == true) {
+            //            if (itemIds == '') {
+            //                itemIds = itemId;
+            //            } else {
+            //                itemIds = itemIds + ", " + itemId;
+            //            }
+            //        }
+            //    });
+
+            //    $(".product_loader").removeClass("d-none");
+
+            //    var minValue = $("#IdMinPrice").val();
+            //    var maxValue = $("#IdMaxPrice").val();
+            //    var searchString = $(".clsSearchData").val();
+            //    SearDataCall(itemIds, minValue, maxValue, searchString);
+            //});
+
+        });
+
+
+        function SearDataCall(itemIds, minValue, maxValue, searchString) {
+            alert("OK");
+             $.ajax({
+                    type: "GET",
+                 url: basedURL + '/Products/product-search-results?catId=@ViewBag.CategoryId&itemIds=' + itemIds + '&searchString=' + searchString+'&minValue=' + minValue + '&maxValue=' + maxValue,
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+
+                        $(".dummy_product_grid, .dummy_product_list, .pagination-container").empty();
+                        $(".dummy_filtercount").text(data.data.length);
+                        if (data.data.length > 0) {
+                            $(data.data).each(function (index, item) {
+
+                                let gridItem = '<div class="col-md-3">';
+                                gridItem = gridItem + '<div class="product-item "><a href="' + basedURL + '/products/details/' + item.productID + '?name=' + item.productNAME+'">';
+                                gridItem = gridItem + '<div class="product-item-img"><img src="' + item.featureImage+'" class="w-100 h-100" alt="">';
+                                gridItem = gridItem + '</div><div class="product-item-text"><div class="product-item-title">' + item.productNAME +'</div>';
+                                gridItem = gridItem + '<div class="product-item-price"> <span class="currency">৳</span><span class="price">' + item.newPrice +'</span> </div>';
+                                gridItem = gridItem + '<div class="product-item-origin-price"><span class="product-origin-price"><span class="currency">৳</span><span class="price">' + item.oldPrice +'</span>';
+                                gridItem = gridItem + '</span><span class="product-discount">-' + item.discountInPercent +'%</span></div><div class="product-item-ratings mt-2">';
+                                gridItem = gridItem + '<div class="rating-star pull-left"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>';
+                                gridItem = gridItem + '<div class="rating-count pull-left">(365)</div><span class="area">Bangladesh</span></div>';
+                                gridItem = gridItem + '</div></a></div></div>';
+
+                                $(".dummy_product_grid").append(gridItem);
+                            });
+                        } else {
+                            $(".dummy_product_grid, .dummy_product_list").append("<h3>Search No Result</h3>");
+                        }
+
+
+
+                        $(".product_loader").addClass("d-none");
+                    },
+                    error: function (er) {
+                        $(".product_loader").addClass("d-none");
+                    }
+                });
+        }
+
+    </script>
+}

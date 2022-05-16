@@ -1,0 +1,308 @@
+﻿/**
+*
+* parsley form validate
+*
+*
+*/
+
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+    color: #468847;
+    background-color: #DFF0D8;
+    border: 1px solid #D6E9C6;
+}
+
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+    color: #B94A48;
+    background-color: #F2DEDE;
+    border: 1px solid #EED3D7;
+}
+sup{
+    color:red;
+}
+.tbl-img {
+    width: 60px;
+    height: auto;
+}
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.upload-preview img {
+    max-height: 80px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+.hdn-uploder {
+    display: none !important;
+}
+
+.parsley-errors-list {
+    margin: 2px 0 3px;
+    padding: 0;
+    list-style-type: none;
+    font-size: 0.9em;
+    line-height: 0.9em;
+    opacity: 0;
+    color: #B94A48;
+    transition: all .3s ease-in;
+    -o-transition: all .3s ease-in;
+    -moz-transition: all .3s ease-in;
+    -webkit-transition: all .3s ease-in;
+}
+
+    .parsley-errors-list.filled {
+        opacity: 1;
+    }
+
+
+/**
+*
+*End parsley style
+*
+*/
+
+.form-card-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tx-16 {
+    font-size: 16px !important;
+}
+
+table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTable thead .sorting_desc, table.dataTable thead .sorting_asc_disabled, table.dataTable thead .sorting_desc_disabled {
+    /*background: #025a83 !important;
+    color: #fff;*/
+    padding: 5px 10px;
+}
+
+table.dataTable.stripe tbody tr, table.dataTable.display tbody tr,
+table.dataTable tbody tr td.sorting_1,
+.line-item-table tbody tr {
+    background-color: #fff !important;
+    color: #000 !important;
+    padding: 5px 10px !important;
+}
+
+    table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even,
+    table.dataTable tbody tr.even td.sorting_1,
+    .line-item-table tbody tr:nth-child(even) {
+        background-color: #D2D5DB !important;
+        color: #000 !important;
+    }
+
+table.dataTable tbody td {
+    padding: 5px 10px !important;
+}
+
+.grid-btn {
+    padding: 4px 10px;
+    line-height: 10px;
+}
+
+.top-logo {
+    max-height: 55px;
+}
+
+.topbar ul.dropdown-user li .dw-user-box .u-img {
+    max-width: 40px;
+}
+
+span.text-label {
+    background: #726767;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 10px;
+    line-height: 12px;
+    font-size: 14px;
+    margin: 5px 5px 10px;
+    display: block;
+    width: max-content;
+    float: left;
+}
+
+
+/*
+    Dropzone
+*/
+
+.dropZoneElement {
+    position: relative;
+    display: inline-block;
+    background-color: #f8f8f8;
+    border: 1px solid #c7c7c7;
+    width: 100%;
+    min-height: 110px;
+    text-align: center;
+}
+
+.textWrapper {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    font-size: 24px;
+    line-height: 1.2em;
+    font-family: Arial,Helvetica,sans-serif;
+    color: #000;
+}
+
+.dropImageHereText {
+    color: #c7c7c7;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.product {
+    float: left;
+    position: relative;
+    margin: 0 10px 10px 0;
+    padding: 0;
+}
+
+    .product img {
+        width: 110px;
+        height: 110px;
+    }
+
+.wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+span.k-widget.k-numerictextbox .parsley-errors-list.filled,
+span.k-widget.k-combobox .parsley-errors-list.filled,
+.k-widget.k-multiselect .parsley-errors-list.filled {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+}
+
+span.k-widget.k-numerictextbox {
+    width: 100%;
+}
+
+span.k-widget.k-combobox {
+    width: 100%;
+}
+
+
+.loader-overlay {
+    background: rgba(22, 51, 115, 0.19);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    display: none;
+}
+
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px; /* -1 * image height / 2 */
+    height: 50px;
+}
+
+div.attribute-remover {
+    background: #025a83;
+    width: 100%;
+    display: block;
+    padding: 5px 15px;
+    color: #fff;
+    overflow: hidden;
+    min-height: 42px;
+}
+
+    div.attribute-remover span {
+        padding: 5px;
+        cursor: pointer;
+        float: right;
+        display: block;
+    }
+
+.theme-box {
+    border: 1px solid #025a83;
+    padding-bottom: 5px;
+}
+
+span.k-numeric-wrap.k-state-disabled {
+    background: #ddd;
+}
+button.k-button.k-upload-selected.k-primary {
+    display: none;
+}
+
+.gal-item {
+    height: 120px;
+    width: 120px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    padding: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    position: revert;
+    float: left;
+}
+
+.gl-image {
+    width: 100%;
+    height: 95%;
+    position: relative;
+    top: -21px;
+}
+.img-feature-chk {
+    position: relative;
+    z-index: 9;
+}
+label.fetured-preview {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+.fetured-preview img {
+    max-width: 100%;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.gallery-uploader {
+    width: 100%;
+    display: block;
+    overflow: auto;
+    max-height: 525px;
+}
+
+span.k-widget.k-datepicker {
+    width: 100%;
+    border-radius: 3px;
+    border-color: #ced4da;
+}
+
+    span.k-widget.k-datepicker input[type='text'] {
+        height: 35px;
+    }
+
+.chk-label .checkbox {
+    float: left;
+    display: block;
+}
+.chk-label span {
+    float: left;
+    display: block;
+    padding-top: 15px;
+}

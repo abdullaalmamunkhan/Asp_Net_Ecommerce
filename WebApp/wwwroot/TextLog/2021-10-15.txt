@@ -1,0 +1,9 @@
+=======  Exception : 10/15/2021 11:27:54 AM  =======
+Id : 60146263
+Remarks : BusniessDomain
+Error Message : Column 'CreatedBy' does not belong to table [dbo].[Get_UserListByRoleId].
+StackTrace :    at BusniessDomain.BLL.AdminBLL.UserBLL.GetAllUserList(Int32 roleId) in F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\BusniessDomain\BLL\AdminBLL\UserBLL.cs:line 181
+   at WebApp.Areas.Admin.Controllers.UsersController.GetAllUserList() in F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\WebApp\Areas\Admin\Controllers\UsersController.cs:line 179
+===================================================
+
+

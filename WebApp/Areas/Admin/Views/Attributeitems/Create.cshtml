@@ -1,0 +1,117 @@
+﻿@model DbModelsCore.Models.Ecommerce.Catalog.DBProductAttributeItems
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+@{
+    ViewData["Title"] = "Create Attribute Item";
+}
+
+<div class="row page-titles">
+    <div class="col-6 align-self-center">
+        <h3>Create Attribute Item</h3>
+    </div>
+    <div class="col-6 text-right font-12">
+        <a href="~/admin/dashboard">Admin</a> &gt;
+        <a asp-action="" asp-controller="Attributeitems" asp-area="Admin">Attribute Items</a> &gt;
+        Create Attribute Item
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="card ">
+            <div class="card-body">
+                <h4 class="card-title text-uppercase mb-20 form-card-title">Create Attribute Item</h4>
+                <form asp-action="Create" asp-area="Admin" asp-controller="Attributeitems" class="form font-14" autocomplete="off" enctype="multipart/form-data" data-parsley-validate>
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="form-group m-t-40 row">
+                                <label class="col-12 col-form-label">Product Attribute</label>
+                                <div class="col-12">
+                                    <select class="form-control" id="ddlProductAttributes" asp-for="ProductAttributeId" asp-items="@(new SelectList(ViewBag.ListOfProductAttribute, "Id", "Name","Choose..."))" required>
+                                        <option selected="" value="">Choose...</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="form-group m-t-40 row">
+                                <label class="col-12 col-form-label">Name</label>
+                                <div class="col-12">
+                                    <input class="form-control" asp-for="Name" type="text" placeholder="Name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="hidden" asp-for="Categories" id="hdnSelectedCategory">
+                                        <label class="control-label font-14 mb-1">Categories</label>
+                                        <div>
+                                            <select id="ddlProductTags" required></select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+    <script>
+        var mltCategoryList;
+        $(document).ready(function () {
+
+            mltCategoryList = $("#ddlProductTags").kendoMultiSelect({
+                placeholder: "Select products...",
+                dataTextField: "name",
+                dataValueField: "id",
+                dataSource: {
+                    type: "json",
+                    transport: {
+                        read: {
+                            url: basedURL + "/admin/productattributes/attribute-categories?attributeId=0"
+                        }
+                    }
+                },
+                change: OnChangeTagMultiSelect
+            }).data("kendoMultiSelect");
+
+            $('#ddlProductAttributes').change(function () {
+                let attributeId = $.trim($('#ddlProductAttributes').val());
+                attributeId = (attributeId != "") ? attributeId : 0;
+                LoadCategoryListByAttribute(attributeId);
+            });
+        });
+
+        function OnChangeTagMultiSelect() {
+            $("#hdnSelectedCategory").val(mltCategoryList.value());
+            var data = $("#hdnSelectedCategory").val();
+        }
+
+        function LoadCategoryListByAttribute(attributeId) {
+            var sharedDataSource = new kendo.data.DataSource({
+                type: "json",
+                transport: {
+                    read: {
+                        url: basedURL + "/admin/productattributes/attribute-categories?attributeId=" + attributeId
+                    }
+                }
+            });
+            mltCategoryList.setDataSource(sharedDataSource);
+
+        }
+
+    </script>
+}

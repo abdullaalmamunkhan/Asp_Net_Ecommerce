@@ -1,0 +1,17 @@
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\CommonProperties.deps.json
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\CommonProperties.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\ref\CommonProperties.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\CommonProperties.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\DbModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\ViewModelsCore.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\ViewModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\bin\Debug\net5.0\DbModelsCore.pdb
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.csproj.AssemblyReference.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.GeneratedMSBuildEditorConfig.editorconfig
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.AssemblyInfoInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.AssemblyInfo.cs
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.csproj.CoreCompileInputs.cache
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.csproj.CopyComplete
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\ref\CommonProperties.dll
+F:\My_Work\SocialWebApiSolution\asp.net-core-ecommerce\SocialWebApiSolutions\CommonProperties\obj\Debug\net5.0\CommonProperties.pdb
